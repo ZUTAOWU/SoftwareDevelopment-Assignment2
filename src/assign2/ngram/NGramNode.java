@@ -3,6 +3,7 @@
  */
 package assign2.ngram;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -115,5 +116,29 @@ public class NGramNode implements NGramContainer {
 			probabilitiesList.add(probabilities[i]);
 		}
 	}
+	
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		//sb.append("NGram Results for Query: ");
+		//sb.append(context);
+		//sb.append("\n");
+		//sb.append("\n");
+		DecimalFormat df = new DecimalFormat(DecFormat);
+		for(int i = 0 ; i < predictionsList.size() ; i++) {
+			sb.append(context);
+			sb.append(" | ");
+			sb.append(predictionsList.get(i));
+			sb.append(" : ");
+			sb.append(df.format(probabilitiesList.get(i)));
+			sb.append("\n");
+		}
+		
+		return sb.toString();
+	}
+	
 
 }
