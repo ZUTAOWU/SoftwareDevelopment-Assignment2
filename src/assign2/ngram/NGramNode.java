@@ -84,7 +84,7 @@ public class NGramNode implements NGramContainer {
 	 */
 	@Override
 	public String[] getPredictions() {
-		return (String[]) predictionsList.toArray();
+		return predictionsList.toArray(new String[predictionsList.size()]);
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class NGramNode implements NGramContainer {
 	 */
 	@Override
 	public Double[] getProbabilities() {
-		return (Double[]) probabilitiesList.toArray();
+		return probabilitiesList.toArray(new Double[probabilitiesList.size()]);
 	}
 
 	/**
