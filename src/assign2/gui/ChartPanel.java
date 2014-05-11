@@ -23,6 +23,7 @@ import assign2.ngram.NGramNode;
  *
  */
 
+@SuppressWarnings("serial")
 public class ChartPanel extends JPanel {
 
 	private CategoryDataset dataset;
