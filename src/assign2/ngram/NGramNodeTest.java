@@ -42,13 +42,7 @@ public class NGramNodeTest {
 	public static void tearDown() throws Exception {
 		nGramNode = null;
 	}
-	
-	/**
-	 * Test method for {@link asgn1Solution.DamActions#DamActions(java.lang.Integer, java.lang.Integer, java.lang.Integer, WaterLog log)}.
-	 * This test method tests the if condition of the constructor of the DamActions class. It tests the case where the job duration is not strictly positive (greater than zero).
-	 * @exception SimulationException - Thrown when the supplied value of Job Duration is negative.
-	 * @see SimulationException
-	 */
+
 	@Test
 	public void testValidInputContext() throws NGramException{
 			
@@ -59,12 +53,6 @@ public class NGramNodeTest {
 	@Rule
 	public ExpectedException invalidPredictionsInputContent = ExpectedException.none();
 	
-	/**
-	 * Test method for {@link asgn1Solution.DamActions#DamActions(java.lang.Integer, java.lang.Integer, java.lang.Integer, WaterLog log)}.
-	 * This test method tests the if condition of the constructor of the DamActions class. It tests the case where the job duration is not strictly positive (greater than zero).
-	 * @exception SimulationException - Thrown when the supplied value of Job Duration is negative.
-	 * @see SimulationException
-	 */
 	@Test
 	public void testInvalidPredictionsInputContent() throws NGramException{
 			
