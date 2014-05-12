@@ -20,19 +20,14 @@ import assign2.ngram.NGramException;
 
 /**
  * @author kaushik.muthukrishnan.simili
- *
+ * 
  */
 public class NGramNodeTest {
-	
-	@SuppressWarnings("unused")
+
 	private static NGramNode nGramNode;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@BeforeClass
 	public static void setUp() throws Exception {
-		
 	}
 
 	/**
@@ -44,25 +39,14 @@ public class NGramNodeTest {
 	}
 
 	@Test
-	public void testValidInputContext() throws NGramException{
-			
+	public void testValidInputContext() throws NGramException {
 		nGramNode.setContext("Hi How are you");
 		assertEquals("Hi How are you", nGramNode.getContext());
-		}
-	
-	@Rule
-	public ExpectedException invalidPredictionsInputContent = ExpectedException.none();
-	
-	@Test
-	public void testInvalidPredictionsInputContent() throws NGramException{
-			
-		invalidPredictionsInputContent.expect(NGramException.class);
-		invalidPredictionsInputContent.expectMessage("You have entered an invalid input content");
-	/*	nGramNode.s("Hi");
-		assertArrayEquals(new String[]{"HI","BYE"},new String[]{"HI","BYE"});*/
-		}
-	
-	
-	
+	}
+
+	@Test(expected = NGramException.class)
+	public void testInvalidInputContext() throws NGramException {
+		nGramNode.setContext("");
+	}
+
 }
-	
