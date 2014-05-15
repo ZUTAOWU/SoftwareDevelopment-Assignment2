@@ -52,14 +52,19 @@ public class NGramStore implements NGramMap {
 
 	/**
 	 * @see assign2.ngram.NGramMap#getNGramsFromService(java.lang.String, int)
+	 * NGramException - if the service fails to connect or if the NGramContainer cannot be created.
 	 */
 	@Override
 	public boolean getNGramsFromService(String context, int maxResults)
 			throws NGramException {
 
 		NgramServiceFactory factory = NgramServiceFactory.newInstance(SimpleNGramGenerator.Key);
+		if(factory == null) {
+			throw new NGramException("NGram Service unavailable");
+		}
 		GenerationService service = factory.newGenerationService();
 		TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5", context, maxResults, null);
+
 		List<String> wordsList = tokenSet.getWords();
 		List<Double> logProbs = tokenSet.getProbabilities();
 		List<Double> probs = new ArrayList<Double>();
@@ -70,7 +75,7 @@ public class NGramStore implements NGramMap {
 
 		String[] predictWords = wordsList.toArray(new String[wordsList.size()]);
 		Double[] probabilities = probs.toArray(new Double[probs.size()]);
-
+		
 		if (wordsList.size() < 1) {
 			ngramMap.put(context, null);
 			return false;
@@ -89,9 +94,17 @@ public class NGramStore implements NGramMap {
 		StringBuffer sb = new StringBuffer();
 		Set<String> keySet = ngramMap.keySet();
 		for(String s : keySet){
-			sb.append("NGram Results for Query: ");
-			sb.append(s);
-			sb.append("\n\n");
+//			sb.append("NGram Results for Query: ");
+//			sb.append(s);
+//			sb.append("\n\n");
+//			NGramNode node = (NGramNode) ngramMap.get(s);
+//			if(node == null) {
+//				sb.append("No ngram predictions were returned.").append("\n");
+//				sb.append("Please try another query.").append("\n");
+//			} else {
+//				sb.append(node.toString());
+//			}
+//			sb.append("\n");
 			NGramNode node = (NGramNode) ngramMap.get(s);
 			if(node == null) {
 				sb.append("No ngram predictions were returned.").append("\n");
@@ -99,7 +112,6 @@ public class NGramStore implements NGramMap {
 			} else {
 				sb.append(node.toString());
 			}
-			sb.append("\n");
 		}
 		return sb.toString();
 	}

@@ -179,6 +179,7 @@ public class NGramNodeTest {
 		}
 		
 		set and get should be test together, if you set some thing, we hope we can get the same result.
+		see below
 	 */
 	@Test
 	public void setContext_Test1() throws NGramException {
