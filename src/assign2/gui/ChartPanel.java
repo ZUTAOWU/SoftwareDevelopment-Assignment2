@@ -68,7 +68,7 @@ public class ChartPanel extends JPanel {
     	
     	JFreeChart chart = ChartFactory.createBarChart3D(
     		title, 
-     		"Phrase _____",
+     		"Phrase:",
     		"Probability",
     		dataset, 
     		PlotOrientation.VERTICAL, 

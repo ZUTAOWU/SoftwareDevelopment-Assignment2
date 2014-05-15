@@ -5,6 +5,7 @@ package assign2.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
@@ -34,43 +36,11 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private static final int HEIGHT = 600;
 	
 	private JPanel btmPanel;
-	private JTextArea textSearchArea;
-	private JPanel textPanel;
+	private JTextField textSearch;
+	private JTextField suggestionNumber;
 	
 	private JPanel resultPanel;
 	private JPanel chartPanel;
-	/**
-	 * 
-	 */
-//	private void createGUI() {
-//		setSize(WIDTH, HEIGHT);
-//	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//	    GridLayout myLayout = new GridLayout(4,0);
-//	    this.getContentPane().setLayout(myLayout);
-//
-//        textSearchArea = new JTextArea();
-//        textSearchArea.setEditable(true);
-//        textPanel = new JPanel(); 
-//	    textPanel.setLayout(new BorderLayout());
-//	    textPanel.add(textSearchArea,BorderLayout.CENTER);
-//	    textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Input text to search", TitledBorder.CENTER, TitledBorder.TOP));
-//        this.getContentPane().add(textPanel);
-//        
-//        
-//        resultPanel = new ResultPanel();
-//        this.getContentPane().add(resultPanel);
-//        
-//        chartPanel = new ChartPanel();
-//        this.getContentPane().add(chartPanel);
-//        
-//	    btmPanel = new JPanel();
-//        btmPanel.setLayout(new FlowLayout());
-//        JButton searchButton = new JButton("Search Suggestion");
-//        searchButton.addActionListener(this);
-//	    btmPanel.add(searchButton);
-//        this.getContentPane().add(btmPanel);
-//        
-//	}
 	
 	private void createGUI() {
 		setSize(WIDTH, HEIGHT);
@@ -108,14 +78,24 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	 * 
 	 */
 	private void createInputAreaGUI() {
-		textSearchArea = new JTextArea();
-        textSearchArea.setEditable(true);
-        textPanel = new JPanel(); 
-	    textPanel.setLayout(new BorderLayout());
-	    textPanel.add(textSearchArea,BorderLayout.CENTER);
-	    JLabel searchLabel = new JLabel("Input Seach String: ");
-	    textPanel.add(searchLabel,BorderLayout.LINE_START);
-	    textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Input text to search", TitledBorder.CENTER, TitledBorder.TOP));
+		JPanel textPanel = new JPanel(); 
+		textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Input text to search", TitledBorder.CENTER, TitledBorder.TOP));
+		
+		textPanel.setLayout(new FlowLayout());
+		textPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		JLabel searchLabel = new JLabel("Input Seach String: ");
+		textPanel.add(searchLabel);
+		
+		textSearch = new JTextField(20);
+		textPanel.add(textSearch);
+		
+		JLabel suggestionNumberLabel = new JLabel("suggestion Number: ");
+		textPanel.add(suggestionNumberLabel);
+
+		suggestionNumber = new JTextField(10);
+		suggestionNumber.setText("5");
+		textPanel.add(suggestionNumber);
+		
         this.getContentPane().add(textPanel, BorderLayout.PAGE_START);
 	}
 	
@@ -140,7 +120,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 		if (buttonString.equals("Search Suggestion")) {
 			String searchText = "";
-			searchText = textSearchArea.getText();
+			searchText = textSearch.getText();
 			if ("".equals(searchText)) {
 				JOptionPane.showMessageDialog(this,"Input something to search!");
 			} else {

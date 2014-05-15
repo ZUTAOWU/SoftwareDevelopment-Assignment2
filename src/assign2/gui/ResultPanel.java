@@ -26,8 +26,9 @@ public class ResultPanel extends JPanel {
 	public ResultPanel() {
 		setLayout(new BorderLayout());
 		this.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Suggestion Results", TitledBorder.CENTER, TitledBorder.TOP));
-		resultDisplay = new JTextArea("This is a default text message");
+		resultDisplay = new JTextArea("");
 		resultDisplay.setPreferredSize(new Dimension(300,HEIGHT));
+		resultDisplay.setEditable(false);
 		this.add(resultDisplay, BorderLayout.CENTER);
 		// setBackground(Color.BLACK);
 
