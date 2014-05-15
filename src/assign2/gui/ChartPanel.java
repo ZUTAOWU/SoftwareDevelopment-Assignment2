@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -31,6 +33,7 @@ public class ChartPanel extends JPanel {
 	private org.jfree.chart.ChartPanel myChart;
 	public ChartPanel() {
 		setLayout(new BorderLayout());
+		setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Chart Results", TitledBorder.CENTER, TitledBorder.TOP));
 		dataset = createDataset();
         chart = createChart(dataset, "test");
         myChart = new org.jfree.chart.ChartPanel(chart);
