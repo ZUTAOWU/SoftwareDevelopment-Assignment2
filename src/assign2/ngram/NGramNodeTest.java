@@ -166,75 +166,38 @@ public class NGramNodeTest {
 	 * 
 	 * @throws NGramException
 	 */
-
-	@Test(expected = NGramException.class)
+	
+	/*
+	 	pay attention KAUSHIK, this kind of test is still testing the java's component
+	 	We cannot test java' things!!!
+	 	Every test must include and test our methods.
+	 	
+	 	@Test(expected = NGramException.class)
+		public void setContext_Test1() throws NGramException {
+			String[] words = { "Please", "Tell", "Me", "Your" };
+			assertEquals("3", words.length);
+		}
+		
+		set and get should be test together, if you set some thing, we hope we can get the same result.
+	 */
+	@Test
 	public void setContext_Test1() throws NGramException {
 		String[] words = { "Please", "Tell", "Me", "Your" };
-		assertEquals("3", words.length);
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals("Please Tell Me Your", node.getContext());
 	}
-
-	/**
-	 * Test method :
-	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[])}. <br/>
-	 * <br/>
-	 * Test NGramNode method, where the supplied first input element of the word array is correct
-	 * values and then NGramException is thrown
-	 * 
-	 * @throws NGramException
-	 */
-
-	@Test(expected = NGramException.class)
+	
+	@Test
 	public void setContext_Test2() throws NGramException {
-		String[] words = { "Please", "Tell", "Me", "Your" };
-		assertEquals("Please", words[0]);
-	}
-	
-	/**
-	 * Test method :
-	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[])}. <br/>
-	 * <br/>
-	 * Test NGramNode method, where the supplied second input element of the word array is correct
-	 * values and then NGramException is thrown
-	 * 
-	 * @throws NGramException
-	 */
-	
-	@Test(expected = NGramException.class)
-	public void setContext_Test3() throws NGramException {
-		String[] words = { "Please", "Tell", "Me", "Your" };
-		assertEquals("Tell", words[1]);
-	}
-	
-	/**
-	 * Test method :
-	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[])}. <br/>
-	 * <br/>
-	 * Test NGramNode method, where the supplied third input element of the word array is correct
-	 * values and then NGramException is thrown
-	 * 
-	 * @throws NGramException
-	 */
-	
-	@Test(expected = NGramException.class)
-	public void setContext_Test4() throws NGramException {
-		String[] words = { "Please", "Tell", "Me", "Your" };
-		assertEquals("Me", words[2]);
-	}
-	
-	/**
-	 * Test method :
-	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[])}. <br/>
-	 * <br/>
-	 * Test NGramNode method, where the supplied fourth input element of the word array is correct
-	 * values and then NGramException is thrown
-	 * 
-	 * @throws NGramException
-	 */
-	
-	@Test(expected = NGramException.class)
-	public void setContext_Test5() throws NGramException {
-		String[] words = { "Please", "Tell", "Me", "Your" };
-		assertEquals("Your", words[3]);
+		String context = "Please Tell Me Your";
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		assertEquals("Please Tell Me Your", node.getContext());
 	}
 
 }
