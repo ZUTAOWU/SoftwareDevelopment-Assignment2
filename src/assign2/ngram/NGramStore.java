@@ -108,9 +108,10 @@ public class NGramStore implements NGramMap {
 			NGramNode node = (NGramNode) ngramMap.get(s);
 			if(node == null) {
 				sb.append("No ngram predictions were returned.").append("\n");
-				sb.append("Please try another query.").append("\n");
+				sb.append("Please try another query.").append("\n\n");
 			} else {
 				sb.append(node.toString());
+				sb.append("\n");
 			}
 		}
 		return sb.toString();

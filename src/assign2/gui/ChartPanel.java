@@ -17,7 +17,10 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import assign2.ngram.NGramContainer;
+import assign2.ngram.NGramMap;
 import assign2.ngram.NGramNode;
+import assign2.ngram.NGramStore;
 
 
 /**
@@ -48,6 +51,14 @@ public class ChartPanel extends JPanel {
         add(myChart, BorderLayout.CENTER);
 	}
 	
+	public void ShowResultChart(String[] contexts, NGramMap store){
+		remove(myChart);
+		dataset = createDataset(contexts, store);
+        chart = createChart(dataset, "test");
+        myChart = new org.jfree.chart.ChartPanel(chart);
+        add(myChart, BorderLayout.CENTER);
+	}
+	
     private  DefaultCategoryDataset createDataset() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         return dataset;
@@ -56,13 +67,31 @@ public class ChartPanel extends JPanel {
 	 /**
      * Creates a sample dataset 
      */
-    private  DefaultCategoryDataset createDataset(NGramNode node) {
+    private  DefaultCategoryDataset createDataset(NGramContainer node) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for(int i = 0 ; i < node.getPredictions().length; i++) {
         	dataset.setValue(node.getProbabilities()[i], node.getContext(), node.getPredictions()[i] );
         }
         return dataset;
     }
+    
+    private  void addDateToDataset(DefaultCategoryDataset dataset, NGramContainer node) {
+    	if(node != null) {
+            for(int i = 0 ; i < node.getPredictions().length; i++) {
+            	dataset.setValue(node.getProbabilities()[i], node.getContext(), node.getPredictions()[i] );
+            }
+    	}
+    }
+    
+    private  DefaultCategoryDataset createDataset(String[] contexts, NGramMap store) {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        
+        for(String context : contexts) {
+        	addDateToDataset(dataset, store.getNGram(context));
+        }
+        return dataset;
+    }
+   
     
     /**
      * Creates a chart

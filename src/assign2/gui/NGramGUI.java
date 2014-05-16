@@ -99,6 +99,16 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
         this.getContentPane().add(textPanel, BorderLayout.PAGE_START);
 	}
 	
+	private String[] parseInput(String searchText) throws NGramException {
+		//String[] phrase = null;
+		String regularExpresstion = "^[a-zA-Z0-9 ,']+$";
+		if(searchText.matches(regularExpresstion)) {
+			return searchText.split(",");
+		} else {
+			throw new NGramException("Please Input valid text for search!");
+		}
+	}
+	
 	/**
 	 * @see java.lang.Runnable#run()
 	 */
@@ -119,22 +129,39 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			String buttonString = e.getActionCommand();
 
 		if (buttonString.equals("Search Suggestion")) {
-			String searchText = "";
-			searchText = textSearch.getText();
-			if ("".equals(searchText)) {
-				JOptionPane.showMessageDialog(this,"Input something to search!");
-			} else {
-				NGramStore ns = new NGramStore();
+			String searchText = textSearch.getText();
+			String searchNumberStr = suggestionNumber.getText();
+			
+			Integer seachNumber = null;
+			try {
+				seachNumber = Integer.valueOf(searchNumberStr);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(this,"Please Input Valid Search Number!");
+				e1.printStackTrace();
+				return;
+			}
+			
+			String[] searchTextArr = null;
+			try {
+				searchTextArr = parseInput(searchText);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(this,"Please Input Valid Search Text!");
+				e1.printStackTrace();
+				return;
+			}
+			
+			NGramStore ns = new NGramStore();
+			for(String s : searchTextArr) {
+				//System.out.println(s);
 				try {
-					ns.getNGramsFromService(searchText, 5);
-					((ResultPanel) resultPanel).showResultText(ns.toString());
-
-					((ChartPanel) chartPanel).ShowResultChart((NGramNode) ns
-							.getNGram(searchText));
+					ns.getNGramsFromService(s, seachNumber);
+					//((ResultPanel) resultPanel).addResultText(searchText, ns.toString());
 				} catch (NGramException e1) {
 					e1.printStackTrace();
 				}
 			}
+			((ResultPanel) resultPanel).showResultText(ns.toString());
+			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
 
 		}
 	}
