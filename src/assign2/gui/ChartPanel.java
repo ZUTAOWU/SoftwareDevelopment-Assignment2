@@ -33,30 +33,31 @@ public class ChartPanel extends JPanel {
 
 	private CategoryDataset dataset;
 	private JFreeChart chart;
-	private org.jfree.chart.ChartPanel myChart;
+	private org.jfree.chart.ChartPanel chartPanel;
+	
 	public ChartPanel() {
 		setLayout(new BorderLayout());
 		setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Chart Results", TitledBorder.CENTER, TitledBorder.TOP));
 		dataset = createDataset();
         chart = createChart(dataset, "test");
-        myChart = new org.jfree.chart.ChartPanel(chart);
-        add(myChart, BorderLayout.CENTER);
+        chartPanel = new org.jfree.chart.ChartPanel(chart);
+        add(chartPanel, BorderLayout.CENTER);
 	}
 	
-	public void ShowResultChart(NGramNode node){
-		remove(myChart);
+	public void ShowResultChart(NGramContainer node){
+		remove(chartPanel);
 		dataset = createDataset(node);
         chart = createChart(dataset, "test");
-        myChart = new org.jfree.chart.ChartPanel(chart);
-        add(myChart, BorderLayout.CENTER);
+        chartPanel = new org.jfree.chart.ChartPanel(chart);
+        add(chartPanel, BorderLayout.CENTER);
 	}
 	
 	public void ShowResultChart(String[] contexts, NGramMap store){
-		remove(myChart);
+		remove(chartPanel);
 		dataset = createDataset(contexts, store);
         chart = createChart(dataset, "test");
-        myChart = new org.jfree.chart.ChartPanel(chart);
-        add(myChart, BorderLayout.CENTER);
+        chartPanel = new org.jfree.chart.ChartPanel(chart);
+        add(chartPanel, BorderLayout.CENTER);
 	}
 	
     private  DefaultCategoryDataset createDataset() {
@@ -65,7 +66,7 @@ public class ChartPanel extends JPanel {
     }
 	
 	 /**
-     * Creates a sample dataset 
+     * Creates a dataset 
      */
     private  DefaultCategoryDataset createDataset(NGramContainer node) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -85,7 +86,6 @@ public class ChartPanel extends JPanel {
     
     private  DefaultCategoryDataset createDataset(String[] contexts, NGramMap store) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        
         for(String context : contexts) {
         	addDateToDataset(dataset, store.getNGram(context));
         }

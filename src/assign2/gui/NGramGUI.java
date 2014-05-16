@@ -126,42 +126,45 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			String buttonString = e.getActionCommand();
+		String buttonString = e.getActionCommand();
 
 		if (buttonString.equals("Search Suggestion")) {
 			String searchText = textSearch.getText();
 			String searchNumberStr = suggestionNumber.getText();
-			
+
 			Integer seachNumber = null;
 			try {
 				seachNumber = Integer.valueOf(searchNumberStr);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this,"Please Input Valid Search Number!");
+				JOptionPane.showMessageDialog(this, "Please Input Valid Search Number!");
 				e1.printStackTrace();
 				return;
 			}
-			
+
 			String[] searchTextArr = null;
 			try {
 				searchTextArr = parseInput(searchText);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this,"Please Input Valid Search Text!");
+				JOptionPane.showMessageDialog(this, "Please Input Valid Search Text!");
 				e1.printStackTrace();
 				return;
 			}
-			
+
 			NGramStore ns = new NGramStore();
-			for(String s : searchTextArr) {
-				//System.out.println(s);
+			for (String s : searchTextArr) {
+				// System.out.println(s);
 				try {
 					ns.getNGramsFromService(s, seachNumber);
-					//((ResultPanel) resultPanel).addResultText(searchText, ns.toString());
+					// ((ResultPanel) resultPanel).addResultText(searchText,
+					// ns.toString());
 				} catch (NGramException e1) {
 					e1.printStackTrace();
 				}
 			}
 			((ResultPanel) resultPanel).showResultText(ns.toString());
 			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
+			chartPanel.updateUI();
+			//((ChartPanel) chartPanel).ShowResultChart(ns.getNGram(searchTextArr[0]));
 
 		}
 	}
