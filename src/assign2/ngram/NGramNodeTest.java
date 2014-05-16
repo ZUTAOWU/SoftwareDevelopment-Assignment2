@@ -189,6 +189,9 @@ public class NGramNodeTest {
 		
 		NGramNode node = new NGramNode(words, predictions, probabilities);
 		assertEquals("Please Tell Me Your", node.getContext());
+		
+		node.setContext("abc def");
+		assertEquals("abc def", node.getContext());
 	}
 	
 	@Test
@@ -199,6 +202,38 @@ public class NGramNodeTest {
 		
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 		assertEquals("Please Tell Me Your", node.getContext());
+		
+		String[] words = { "Please", "Tell", "Me", "Your" };
+		node.setContext(words);
+		assertEquals("Please Tell Me Your", node.getContext());
+	}
+	
+	@Test
+	public void setContext_Test3() throws NGramException {
+		String context = "123";
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		assertEquals("123", node.getContext());
+		
+		String[] words = { "!@#", " ", "!@#,", "Your" };
+		node.setContext(words);
+		assertEquals("!@#   !@#, Your", node.getContext());
+	}
+	
+	@Test
+	public void setGetContext_Test4() throws NGramException {
+		String context = "Please Tell Me Your";
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		assertEquals("Please Tell Me Your", node.getContext());
+		
+		String[] words = { " ", " "};
+		node.setContext(words);
+		assertEquals("   ", node.getContext());
 	}
 
 }

@@ -47,14 +47,9 @@ public class NGramStoreTest {
 	 * @throws NGramException
 	 */
 
-	@Test(expected = NGramException.class)
-	public void Test_addNGram_NullValues_Exception1() throws NGramException {
-		// Inserting null values to the map
-		String context = null;
-		NGramContainer ngram = null;
-		ngramMap.put(context, ngram);
-		NGramStore store = new NGramStore();
-		store.addNGram(ngram);
+	@Test
+	public void Test_addNGram_NullValues() throws NGramException {
+
 	}
 
 	/**
@@ -68,14 +63,9 @@ public class NGramStoreTest {
 	 * @throws NGramException
 	 */
 
-	@Test(expected = NGramException.class)
-	public void Test_addNGram_NullValues_Exception2() throws NGramException {
-		// Inserting no value to context to the map
-		String context = "";
-		NGramContainer ngram = null;
-		ngramMap.put(context, ngram);
-		NGramStore store = new NGramStore();
-		store.removeNGram(context);
+	@Test
+	public void Test_removeNGram1() throws NGramException {
+
 	}
 
 	/**
@@ -89,14 +79,9 @@ public class NGramStoreTest {
 	 * @throws NGramException
 	 */
 
-	@Test(expected = NGramException.class)
-	public void Test_addNGram_Exception3() throws NGramException {
-		// Removing the null value from the map
-		String context = "Hello";
-		NGramContainer ngram = null;
-		ngramMap.put(context, ngram);
-		NGramStore store = new NGramStore();
-		store.removeNGram(context);
+	@Test
+	public void Test_removeNGram2() throws NGramException {
+		
 	}
 
 	/**
@@ -110,52 +95,11 @@ public class NGramStoreTest {
 	 * @throws NGramException
 	 */
 
-	@Test(expected = NGramException.class)
-	public void Test_removeNGram_Exception1() throws NGramException {
-		// Removing the null value from the map
-		String context = null;
-		ngramMap.remove(context);
-		NGramStore store = new NGramStore();
-		store.removeNGram(context);
+	@Test
+	public void Test_removeNGram3() throws NGramException {
+
 	}
 
-	/**
-	 * Test method :
-	 * {@link assign2.ngram.NGramStore#removeNGram(java.lang.String)} . <br/>
-	 * <br/>
-	 * Test NGramStore's method, where context is input as empty value and then
-	 * NGramException is thrown
-	 * 
-	 * 
-	 * @throws NGramException
-	 */
-
-	@Test(expected = NGramException.class)
-	public void Test_removeNGram_Exception2() throws NGramException {
-		String context = "";
-		ngramMap.remove(context);
-		NGramStore store = new NGramStore();
-		store.removeNGram(context);
-	}
-
-	/**
-	 * Test method :
-	 * {@link assign2.ngram.NGramStore#removeNGram(java.lang.String)} . <br/>
-	 * <br/>
-	 * Test NGramStore's method, where context value is supplied and the
-	 * corresponding context is also removed and then NGramException is thrown
-	 * 
-	 * 
-	 * @throws NGramException
-	 */
-
-	@Test(expected = NGramException.class)
-	public void Test_removeNGram_Exception3() throws NGramException {
-		String context = "Hello";
-		ngramMap.remove(context);
-		NGramStore store = new NGramStore();
-		store.removeNGram(context);
-	}
 	
 	/**
 	 * Test method :
