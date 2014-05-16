@@ -445,15 +445,15 @@ public class NGramNodeTest {
 
 	@Test
 	public void toString_Test1() throws NGramException {
-		String[] words = { "Please", "Tell", "Me", "Your" };
-		String[] predictions = { "How", "Are", "You" };
+		String[] words = { "Please", "Tell", "Me" };
+		String[] predictions = { "ghi", "abc", "com" };
 		Double[] probabilities = { 0.1, 0.1, 0.1 };
 
 		NGramNode node = new NGramNode(words, predictions, probabilities);
-		assertEquals("Please Tell Me Your", node.getContext());
+		assertEquals("Please Tell Me", node.getContext());
 
 		node.setContext("abc def");
-		assertEquals("abc def | How : 0.10000\nabc def | Are : 0.10000\nabc def | You : 0.10000\n", node.toString());
+		assertEquals("abc def | ghi : 0.100000\nabc def | abc : 0.100000\nabc def | com : 0.100000\n", node.toString());
 		
 	}
 }
