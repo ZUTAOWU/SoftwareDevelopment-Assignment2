@@ -2,14 +2,20 @@ Assignment2
 
 Works not finished:
 
-1:Test Cases
-------------------------------------------------------------------------------------
-2:Test GUI
-------------------------------------------------------------------------------------
-3:GUI input multi search string: 
-e.g. test, asd1, to be or not to, ....
-------------------------------------------------------------------------------------
-4:GUI result textarea add scrollBar to display long results.
-------------------------------------------------------------------------------------
-5:other...
-------------------------------------------------------------------------------------
+Time manage:
+
+16th to 19th(4 days)
+
+Kauski: test cases (Each class at least 40 test cases)
+Tony  : finish and recheck all codes
+------------------------------------------------------
+20th to 23th(4days)
+
+Kaushik: GUI test doc
+Tony   : add more test cases and GUI test cases
+------------------------------------------------------
+24th to 26th(3days)
+
+Kaushik: comments and recheck the whole project
+Tony   : comments and recheck the whole project
+------------------------------------------------------

@@ -100,7 +100,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	}
 	
 	private String[] parseInput(String searchText) throws NGramException {
-		//String[] phrase = null;
 		String regularExpresstion = "^[a-zA-Z0-9 ,']+$";
 		if(searchText.matches(regularExpresstion)) {
 			return searchText.split(",");
@@ -152,11 +151,8 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 			NGramStore ns = new NGramStore();
 			for (String s : searchTextArr) {
-				// System.out.println(s);
 				try {
 					ns.getNGramsFromService(s, seachNumber);
-					// ((ResultPanel) resultPanel).addResultText(searchText,
-					// ns.toString());
 				} catch (NGramException e1) {
 					e1.printStackTrace();
 				}
@@ -164,8 +160,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			((ResultPanel) resultPanel).showResultText(ns.toString());
 			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
 			chartPanel.updateUI();
-			//((ChartPanel) chartPanel).ShowResultChart(ns.getNGram(searchTextArr[0]));
-
 		}
 	}
 	
