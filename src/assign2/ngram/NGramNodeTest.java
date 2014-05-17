@@ -815,5 +815,36 @@ public class NGramNodeTest {
 				"Passengers are requested to | honestly : 0.736578\nPassengers are requested to | sincerely : 0.953905\nPassengers are requested to | exactly : 0.359035\n",
 				node.toString());
 	}
+	
+	/**
+	 * Test method : {@link assign2.ngram.NGramNode#toString()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, when probabilities are displayed exactly for the
+	 * user input by getting added exactly after the predictions, here the
+	 * second probability is 0.359035 mismatching with the below string buffer
+	 * operation's probability 0.583588. So, used assertNotEquals and checking
+	 * as part of the code whether the string buffer returned is exact and
+	 * correct in the node and also matches well with the number and length of
+	 * the probabilities and then NGramException is thrown
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test
+	public void toString_Test4() throws NGramException {
+		String[] words = { "People", "Are", "Told" };
+		String[] predictions = { "regarding", "gently", "everything" };
+		Double[] probabilities = { 0.736578, 0.679879, 0.359035 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		node.setContext("Gentlemen are Informed");
+		@SuppressWarnings("unused")
+		String outputNodeValue = node.toString();
+		outputNodeValue = "Gentlemen are Informed | regarding : 0.736578\nGentlemen are Informed | gently : 0.679879\nGentlemen are Informed | everything : 0.583588\n";
+		assertNotEquals(
+				"Gentlemen are Informed | regarding : 0.736578\nGentlemen are Informed | gently : 0.679879\nGentlemen are Informed | everything : 0.583588\n",
+				node.toString());
+	}
+
 
 }
