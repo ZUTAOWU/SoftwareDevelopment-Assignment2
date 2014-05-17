@@ -762,7 +762,7 @@ public class NGramNodeTest {
 	 * Test NGramNode method, when probabilities are displayed exactly for the
 	 * user input by getting added exactly after the predictions, here the first
 	 * probability is 0.736578 mismatching with the below string buffer
-	 * operation's probability 0.385354. So, used assertNotEquals and checking
+	 * operation's probability 0.385354. So, assertNotEquals is used and checking
 	 * as part of the code whether the string buffer returned is exact and
 	 * correct in the node and also matches well with the number and length of
 	 * the probabilities and then NGramException is thrown
@@ -792,7 +792,7 @@ public class NGramNodeTest {
 	 * Test NGramNode method, when probabilities are displayed exactly for the
 	 * user input by getting added exactly after the predictions, here the
 	 * second probability is 0.679879 mismatching with the below string buffer
-	 * operation's probability 0.953905. So, used assertNotEquals and checking
+	 * operation's probability 0.953905. So, assertNotEquals is used and checking
 	 * as part of the code whether the string buffer returned is exact and
 	 * correct in the node and also matches well with the number and length of
 	 * the probabilities and then NGramException is thrown
@@ -822,7 +822,7 @@ public class NGramNodeTest {
 	 * Test NGramNode method, when probabilities are displayed exactly for the
 	 * user input by getting added exactly after the predictions, here the
 	 * second probability is 0.359035 mismatching with the below string buffer
-	 * operation's probability 0.583588. So, used assertNotEquals and checking
+	 * operation's probability 0.583588. So, assertNotEquals is used and checking
 	 * as part of the code whether the string buffer returned is exact and
 	 * correct in the node and also matches well with the number and length of
 	 * the probabilities and then NGramException is thrown
