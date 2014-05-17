@@ -3,7 +3,7 @@
  */
 package assign2.ngram;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -511,9 +511,10 @@ public class NGramNodeTest {
 	 * Test method :
 	 * {@link assign2.ngram.NGramNode#setPredictions(java.lang.String[])}. <br/>
 	 * <br/>
-	 * Test NGramNode method, when the predictions displayed for the below scenario of user input
-	 * show a null value in the beginning in the node and then expecting an
-	 * NGramExpection as part of the code. NGramException is thrown
+	 * Test NGramNode method, when the predictions displayed for the below
+	 * scenario of user input show a null value in the beginning in the node and
+	 * then expecting an NGramExpection as part of the code. NGramException is
+	 * thrown
 	 * 
 	 * @throws NGramException
 	 */
@@ -527,14 +528,15 @@ public class NGramNodeTest {
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 		node.getPredictions();
 	}
-	
+
 	/**
 	 * Test method :
 	 * {@link assign2.ngram.NGramNode#setPredictions(java.lang.String[])}. <br/>
 	 * <br/>
-	 * Test NGramNode method, when the predictions displayed for the below scenario of user input
-	 * show a null value in the second place in the node and then expecting an
-	 * NGramExpection as part of the code. NGramException is thrown
+	 * Test NGramNode method, when the predictions displayed for the below
+	 * scenario of user input show a null value in the second place in the node
+	 * and then expecting an NGramExpection as part of the code. NGramException
+	 * is thrown
 	 * 
 	 * @throws NGramException
 	 */
@@ -548,14 +550,15 @@ public class NGramNodeTest {
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 		node.getPredictions();
 	}
-	
+
 	/**
 	 * Test method :
 	 * {@link assign2.ngram.NGramNode#setPredictions(java.lang.String[])}. <br/>
 	 * <br/>
-	 * Test NGramNode method, when the predictions displayed for the below scenario of user input
-	 * show a null value in the third place in the node and then expecting an
-	 * NGramExpection as part of the code. NGramException is thrown
+	 * Test NGramNode method, when the predictions displayed for the below
+	 * scenario of user input show a null value in the third place in the node
+	 * and then expecting an NGramExpection as part of the code. NGramException
+	 * is thrown
 	 * 
 	 * @throws NGramException
 	 */
@@ -569,14 +572,15 @@ public class NGramNodeTest {
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 		node.getPredictions();
 	}
-	
+
 	/**
 	 * Test method :
 	 * {@link assign2.ngram.NGramNode#setPredictions(java.lang.String[])}. <br/>
 	 * <br/>
-	 * Test NGramNode method, when the predictions displayed for the below scenario of user input
-	 * show a null value in the last place in the node and then expecting an
-	 * NGramExpection as part of the code. NGramException is thrown
+	 * Test NGramNode method, when the predictions displayed for the below
+	 * scenario of user input show a null value in the last place in the node
+	 * and then expecting an NGramExpection as part of the code. NGramException
+	 * is thrown
 	 * 
 	 * @throws NGramException
 	 */
@@ -590,7 +594,6 @@ public class NGramNodeTest {
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 		node.getPredictions();
 	}
-
 
 	/**
 	 * Test method :
@@ -725,19 +728,92 @@ public class NGramNodeTest {
 		node.getProbabilities();
 	}
 
+	/**
+	 * Test method : {@link assign2.ngram.NGramNode#toString()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, when probabilities are displayed exactly for the
+	 * user input by getting added exactly after the predictions, checking as
+	 * part of the code whether the string buffer value returned is exact and
+	 * correct in the node and also matches well with the number and length of
+	 * the probabilities and then NGramException is thrown
+	 * 
+	 * @throws NGramException
+	 */
+
 	@Test
 	public void toString_Test1() throws NGramException {
 		String[] words = { "Please", "Tell", "Me" };
-		String[] predictions = { "ghi", "abc", "com" };
-		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		String[] predictions = { "about", "now", "urgently" };
+		Double[] probabilities = { 0.385354, 0.953905, 0.359035 };
 
 		NGramNode node = new NGramNode(words, predictions, probabilities);
 		assertEquals("Please Tell Me", node.getContext());
 
-		node.setContext("abc def");
+		node.setContext("Kindly Inform Him");
 		assertEquals(
-				"abc def | ghi : 0.100000\nabc def | abc : 0.100000\nabc def | com : 0.100000\n",
+				"Kindly Inform Him | about : 0.385354\nKindly Inform Him | now : 0.953905\nKindly Inform Him | urgently : 0.359035\n",
 				node.toString());
 
 	}
+
+	/**
+	 * Test method : {@link assign2.ngram.NGramNode#toString()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, when probabilities are displayed exactly for the
+	 * user input by getting added exactly after the predictions, here the first
+	 * probability is 0.736578 mismatching with the below string buffer
+	 * operation's probability 0.385354. So, used assertNotEquals and checking
+	 * as part of the code whether the string buffer returned is exact and
+	 * correct in the node and also matches well with the number and length of
+	 * the probabilities and then NGramException is thrown
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test
+	public void toString_Test2() throws NGramException {
+		String[] words = { "Please", "Tell", "Me" };
+		String[] predictions = { "about", "now", "urgently" };
+		Double[] probabilities = { 0.736578, 0.953905, 0.359035 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		node.setContext("Kindly Inform Him");
+		@SuppressWarnings("unused")
+		String outputNodeValue = node.toString();
+		outputNodeValue = "Kindly Inform Him | about : 0.385354\nKindly Inform Him | now : 0.953905\nKindly Inform Him | urgently : 0.359035\n";
+		assertNotEquals(
+				"Kindly Inform Him | about : 0.385354\nKindly Inform Him | now : 0.953905\nKindly Inform Him | urgently : 0.359035\n",
+				node.toString());
+	}
+
+	/**
+	 * Test method : {@link assign2.ngram.NGramNode#toString()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, when probabilities are displayed exactly for the
+	 * user input by getting added exactly after the predictions, here the
+	 * second probability is 0.679879 mismatching with the below string buffer
+	 * operation's probability 0.953905. So, used assertNotEquals and checking
+	 * as part of the code whether the string buffer returned is exact and
+	 * correct in the node and also matches well with the number and length of
+	 * the probabilities and then NGramException is thrown
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test
+	public void toString_Test3() throws NGramException {
+		String[] words = { "Kindly", "Inform", "Us" };
+		String[] predictions = { "honestly", "sincerely", "exactly" };
+		Double[] probabilities = { 0.736578, 0.679879, 0.359035 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		node.setContext("Passengers are requested to");
+		@SuppressWarnings("unused")
+		String outputNodeValue = node.toString();
+		outputNodeValue = "Passengers are requested to | honestly : 0.736578\nPassengers are requested to | sincerely : 0.953905\nPassengers are requested to | exactly : 0.359035\n";
+		assertNotEquals(
+				"Passengers are requested to | honestly : 0.736578\nPassengers are requested to | sincerely : 0.953905\nPassengers are requested to | exactly : 0.359035\n",
+				node.toString());
+	}
+
 }
