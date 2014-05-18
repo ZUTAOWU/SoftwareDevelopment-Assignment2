@@ -202,7 +202,11 @@ public class NGramStoreTest {
 		NGramStore store = new NGramStore();
 		store.addNGram(node);
 		
-		assertEquals("Please Tell Me Your | How : 0.100000\nPlease Tell Me Your | Are : 0.100000\nPlease Tell Me Your | You : 0.100000\n", store.toString());
+		// the format #.###### means show Digit, zero shows as absent. so 0.1 cannot be show as 0.100000
+		StringBuffer sb = new StringBuffer();
+		sb.append("Please Tell Me Your | How : 0.1\nPlease Tell Me Your | Are : 0.1\nPlease Tell Me Your | You : 0.1\n");
+		sb.append("\n");
+		assertEquals(sb.toString(), store.toString());
 		
 	}
 	
