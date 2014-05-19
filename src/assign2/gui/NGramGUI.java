@@ -108,6 +108,24 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		}
 	}
 	
+	private String getResult(String[] searchTextArr, NGramStore ngramMap) {
+		StringBuffer sb = new StringBuffer();
+		for(String s : searchTextArr) {
+			sb.append("NGram Results for Query: ");
+			sb.append(s);
+			sb.append("\n\n");
+			NGramNode node = (NGramNode) ngramMap.getNGram(s);
+			if(node == null) {
+				sb.append("No ngram predictions were returned.").append("\n");
+				sb.append("Please try another query.").append("\n");
+			} else {
+				sb.append(node.toString());
+				sb.append("\n");
+			}
+		}
+		return sb.toString();
+	}
+	
 	/**
 	 * @see java.lang.Runnable#run()
 	 */
@@ -157,9 +175,11 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 					e1.printStackTrace();
 				}
 			}
-			((ResultPanel) resultPanel).showResultText(ns.toString());
+			((ResultPanel) resultPanel).showResultText(getResult(searchTextArr, ns));
 			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
 			chartPanel.updateUI();
+			
+			System.out.println(ns);
 		}
 	}
 	

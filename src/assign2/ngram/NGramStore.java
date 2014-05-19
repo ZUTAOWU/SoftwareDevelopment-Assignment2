@@ -1,7 +1,7 @@
 package assign2.ngram;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,7 +22,7 @@ public class NGramStore implements NGramMap {
 	private Map<String, NGramContainer> ngramMap;
 
 	public NGramStore() {
-		ngramMap = new HashMap<String, NGramContainer>();
+		ngramMap = new LinkedHashMap<String, NGramContainer>();
 	}
 
 	/**
@@ -65,25 +65,30 @@ public class NGramStore implements NGramMap {
 		GenerationService service = factory.newGenerationService();
 		TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5", context, maxResults, null);
 
-		List<String> wordsList = tokenSet.getWords();
-		List<Double> logProbs = tokenSet.getProbabilities();
-		List<Double> probs = new ArrayList<Double>();
+		try {
+			List<String> wordsList = tokenSet.getWords();
+			List<Double> logProbs = tokenSet.getProbabilities();
+			List<Double> probs = new ArrayList<Double>();
 
-		for (Double x : logProbs) {
-			probs.add(Math.pow(10.0, x));
+			for (Double x : logProbs) {
+				probs.add(Math.pow(10.0, x));
+			}
+
+			String[] predictWords = wordsList.toArray(new String[wordsList.size()]);
+			Double[] probabilities = probs.toArray(new Double[probs.size()]);
+			
+			if (wordsList.size() < 1) {
+				//ngramMap.put(context, null);
+				return false;
+			} else {
+				NGramNode node = new NGramNode(context, predictWords, probabilities);
+				ngramMap.put(context, node);
+				return true;
+			}
+		} catch (Exception e) {
+			throw new NGramException("Can not create NGramNode");
 		}
 
-		String[] predictWords = wordsList.toArray(new String[wordsList.size()]);
-		Double[] probabilities = probs.toArray(new Double[probs.size()]);
-		
-		if (wordsList.size() < 1) {
-			ngramMap.put(context, null);
-			return false;
-		} else {
-			NGramNode node = new NGramNode(context, predictWords, probabilities);
-			ngramMap.put(context, node);
-			return true;
-		}
 	}
 	
 	/**
@@ -94,25 +99,17 @@ public class NGramStore implements NGramMap {
 		StringBuffer sb = new StringBuffer();
 		Set<String> keySet = ngramMap.keySet();
 		for(String s : keySet){
-//			sb.append("NGram Results for Query: ");
-//			sb.append(s);
-//			sb.append("\n\n");
-//			NGramNode node = (NGramNode) ngramMap.get(s);
+			NGramNode node = (NGramNode) ngramMap.get(s);
 //			if(node == null) {
 //				sb.append("No ngram predictions were returned.").append("\n");
-//				sb.append("Please try another query.").append("\n");
+//				sb.append("Please try another query.").append("\n\n");
 //			} else {
 //				sb.append(node.toString());
+//				sb.append("\n");
 //			}
-//			sb.append("\n");
-			NGramNode node = (NGramNode) ngramMap.get(s);
-			if(node == null) {
-				sb.append("No ngram predictions were returned.").append("\n");
-				sb.append("Please try another query.").append("\n\n");
-			} else {
-				sb.append(node.toString());
-				sb.append("\n");
-			}
+			
+			sb.append(node.toString());
+			sb.append("\n");
 		}
 		return sb.toString();
 	}
