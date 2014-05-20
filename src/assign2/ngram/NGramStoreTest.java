@@ -444,4 +444,32 @@ public class NGramStoreTest {
 				"Gentlemen are Informed | regarding : 0.736578\nGentlemen are Informed | gently : 0.679879\nGentlemen are Informed | everything : 0.583588\n",
 				node.toString());
 	}
+	
+	
+	@Test
+	public void toString_Test8() throws NGramException {
+		NGramStore store = new NGramStore();
+		String[] words = { "Please", "Tell", "Me" };
+		String[] predictions = { "How", "Now", "This" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals("Please Tell Me", node.getContext());
+
+		NGramNode node2 = new NGramNode(words, predictions, probabilities);
+		node2.setContext("Come Here Once");
+		node2.setPredictions(new String[] { "a", "in", "more"});
+
+		store.addNGram(node);
+		store.addNGram(node2);
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("Please Tell Me | How : 0.1\nPlease Tell Me | Now : 0.1\nPlease Tell Me | This : 0.1\n");
+		sb.append("\n");
+		sb.append("Come Here Once | a : 0.1\nCome Here Once | in : 0.1\nCome Here Once | more : 0.1\n");
+		sb.append("\n");
+		assertEquals(sb.toString(), store.toString());
+
+	}
+
 }

@@ -19,3 +19,12 @@ Tony   : add more test cases and GUI test cases
 Kaushik: comments and recheck the whole project
 Tony   : comments and recheck the whole project
 ------------------------------------------------------
+
+Modification on 19 May
+
+1 change HashMap to LinkedHashMap
+2 when getNGramsFromService, we can not add null to NGramStore
+3 In GUI, show result texts do not use NGramStore.toString(). Do this is because need header
+
+Questions:
+ 1 what if when the number of predictions and number of probilities are different.
