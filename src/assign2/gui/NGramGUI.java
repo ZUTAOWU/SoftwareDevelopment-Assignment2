@@ -81,12 +81,10 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private void createInputAreaGUI() {
 		JPanel textPanel = new JPanel(); 
 		textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Ngram Search Engine", TitledBorder.CENTER, TitledBorder.TOP));
-		
 		textPanel.setLayout(new FlowLayout());
 		textPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		JLabel searchLabel = new JLabel("Input search text: ");
 		textPanel.add(searchLabel);
-		
 		textSearch = new JTextField(20);
 		textPanel.add(textSearch);
 		JLabel suggestionNumberLabel = new JLabel("Specify the number of suggestions: ");
