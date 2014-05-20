@@ -24,7 +24,7 @@ public class ResultPanel extends JPanel {
 	JScrollPane scrollPane;
 	public ResultPanel() {
 		setLayout(new BorderLayout());
-		setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Suggestion Results", TitledBorder.CENTER, TitledBorder.TOP));
+		setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Results", TitledBorder.CENTER, TitledBorder.TOP));
 		resultDisplay = new JTextArea("");
 		resultDisplay.setEditable(false);
 		scrollPane = new JScrollPane(resultDisplay, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
