@@ -2,9 +2,7 @@
  * 
  */
 package assign2.gui;
-
 import javax.swing.SwingUtilities;
-
 
 /**
  * @author ZUTAOWU n8975698

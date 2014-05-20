@@ -20,11 +20,21 @@ Kaushik: comments and recheck the whole project
 Tony   : comments and recheck the whole project
 ------------------------------------------------------
 
-Modification on 19 May
+Modification on 19th May
 
 1 change HashMap to LinkedHashMap
 2 when getNGramsFromService, we can not add null to NGramStore
 3 In GUI, show result texts do not use NGramStore.toString(). Do this is because need header
 
+Modification on 20th May
+
+1 trim spaces in input
+2 do not search duplicate strings
+
+------------------------------------------------------
+
 Questions:
  1 what if when the number of predictions and number of probilities are different.
+ 2 NGramStore can we throw exception when we add null, because for test cases.
+ 3 using special characters/symbols of user input.
+ 4 asd,test,  is invalid or valid ?

@@ -5,23 +5,17 @@ package assign2.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
-
 import assign2.ngram.NGramContainer;
 import assign2.ngram.NGramMap;
-import assign2.ngram.NGramNode;
-import assign2.ngram.NGramStore;
-
 
 /**
  * @author ZUTAOWU n8975698

@@ -10,17 +10,17 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-
 import assign2.ngram.NGramException;
 import assign2.ngram.NGramNode;
 import assign2.ngram.NGramStore;
@@ -32,7 +32,7 @@ import assign2.ngram.NGramStore;
 public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 	private static final long serialVersionUID = -2419228817448519511L;
-	private static final int WIDTH = 600;
+	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 	
 	private JPanel btmPanel;
@@ -46,7 +46,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		setSize(WIDTH, HEIGHT);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLayout(new BorderLayout());
-
         createInputAreaGUI();
         createResultGUI();
         createSearchButtonGUI();
@@ -88,7 +87,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		
 		textSearch = new JTextField(20);
 		textPanel.add(textSearch);
-		
 		JLabel suggestionNumberLabel = new JLabel("suggestion Number: ");
 		textPanel.add(suggestionNumberLabel);
 
@@ -102,7 +100,11 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private String[] parseInput(String searchText) throws NGramException {
 		String regularExpresstion = "^[a-zA-Z0-9 ,']+$";
 		if(searchText.matches(regularExpresstion)) {
-			return searchText.split(",");
+			String[] results = searchText.split(",");
+			for(int i = 0 ; i < results.length ; i++) {
+				results[i] = results[i].trim();
+			}
+			return results;
 		} else {
 			throw new NGramException("Please Input valid text for search!");
 		}
@@ -161,24 +163,29 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 				return;
 			}
 
+			
 			String[] searchTextArr = null;
 			try {
 				searchTextArr = parseInput(searchText);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this, "Please Input Valid Search Text!");
+				JOptionPane.showMessageDialog(this, "Please Input Valid Search Texts!");
 				e1.printStackTrace();
 				return;
 			}
+			
+			Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(searchTextArr));
 
 			NGramStore ns = new NGramStore();
-			for (String s : searchTextArr) {
+			for (String s : mySet) {
 				try {
 					ns.getNGramsFromService(s, seachNumber);
 				} catch (NGramException e1) {
+					JOptionPane.showMessageDialog(this, "Please Input Valid Search Texts!");
 					e1.printStackTrace();
+					return;
 				}
 			}
-			((ResultPanel) resultPanel).showResultText(getResult(searchTextArr, ns));
+			((ResultPanel) resultPanel).showResultText(getResult(mySet.toArray(new String[mySet.size()]), ns));
 			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
 			chartPanel.updateUI();
 			System.out.println(ns);

@@ -1,14 +1,11 @@
 package assign2.ngram;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import assign2.examples.ngram.SimpleNGramGenerator;
-
 import com.microsoft.research.webngram.service.GenerationService;
 import com.microsoft.research.webngram.service.NgramServiceFactory;
 import com.microsoft.research.webngram.service.GenerationService.TokenSet;
@@ -59,15 +56,15 @@ public class NGramStore implements NGramMap {
 	public boolean getNGramsFromService(String context, int maxResults)
 			throws NGramException {
 
-		NgramServiceFactory factory = NgramServiceFactory
-				.newInstance(SimpleNGramGenerator.Key);
+		NgramServiceFactory factory = NgramServiceFactory.newInstance(SimpleNGramGenerator.Key);
 		if (factory == null) {
 			throw new NGramException("NGram Service unavailable");
 		}
-		GenerationService service = factory.newGenerationService();
-		TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5", context, maxResults, null);
+		
 
 		try {
+			GenerationService service = factory.newGenerationService();
+			TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5", context, maxResults, null);
 			List<String> wordsList = tokenSet.getWords();
 			List<Double> logProbs = tokenSet.getProbabilities();
 			List<Double> probs = new ArrayList<Double>();
@@ -88,7 +85,7 @@ public class NGramStore implements NGramMap {
 				return true;
 			}
 		} catch (Exception e) {
-			throw new NGramException("Can not create NGramNode");
+			throw new NGramException("Can not create NGramNode Successfully!");
 		}
 	}
 	

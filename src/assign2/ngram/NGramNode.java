@@ -12,11 +12,9 @@ import java.util.ArrayList;
  */
 public class NGramNode implements NGramContainer {
 
-	//ArrayList<String> wordsList;
 	String context;
 	ArrayList<String> predictionsList;
 	ArrayList<Double> probabilitiesList;
-	
 	/**
 	 * @param
 	 * String[] words - array of words in order that make up the context <br/>
@@ -48,7 +46,6 @@ public class NGramNode implements NGramContainer {
 	
 	private boolean checkProbArray(Double[] probArr) {
 		boolean isCorrect = true;
-		
 		if(probArr != null) {
 			for(int i = 0 ; i < probArr.length ; i++) {
 				if(probArr[i] == null || Double.compare(probArr[i], 0.0) <= 0 || Double.compare(probArr[i], 1.0) > 0) {
@@ -201,10 +198,6 @@ public class NGramNode implements NGramContainer {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		//sb.append("NGram Results for Query: ");
-		//sb.append(context);
-		//sb.append("\n");
-		//sb.append("\n");
 		DecimalFormat df = new DecimalFormat(DecFormat);
 		for(int i = 0 ; i < predictionsList.size() ; i++) {
 			sb.append(context);
