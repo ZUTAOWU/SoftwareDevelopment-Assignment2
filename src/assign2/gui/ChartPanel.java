@@ -28,12 +28,13 @@ public class ChartPanel extends JPanel {
 	private CategoryDataset dataset;
 	private JFreeChart chart;
 	private org.jfree.chart.ChartPanel chartPanel;
+	private static final String ChartTitle = "Search Statistics";
 	
 	public ChartPanel() {
 		setLayout(new BorderLayout());
 		setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Chart Results", TitledBorder.CENTER, TitledBorder.TOP));
 		dataset = createDataset();
-        chart = createChart(dataset, "test");
+        chart = createChart(dataset, ChartTitle);
         chartPanel = new org.jfree.chart.ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
 	}
@@ -41,7 +42,7 @@ public class ChartPanel extends JPanel {
 	public void ShowResultChart(NGramContainer node){
 		remove(chartPanel);
 		dataset = createDataset(node);
-        chart = createChart(dataset, "test");
+        chart = createChart(dataset, ChartTitle);
         chartPanel = new org.jfree.chart.ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
 	}
@@ -49,7 +50,7 @@ public class ChartPanel extends JPanel {
 	public void ShowResultChart(String[] contexts, NGramMap store){
 		remove(chartPanel);
 		dataset = createDataset(contexts, store);
-        chart = createChart(dataset, "test");
+        chart = createChart(dataset, ChartTitle);
         chartPanel = new org.jfree.chart.ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
 	}
