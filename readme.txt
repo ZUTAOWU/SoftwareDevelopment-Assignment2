@@ -38,3 +38,4 @@ Questions:
  2 NGramStore can we throw exception when we add null and remove null and empty string, because for test cases.
  3 using special characters/symbols of user input.
  4 asd,test,  is invalid or valid ?
+ 5 serialVersionUID ? @SuppressWarnings("serial") ?
