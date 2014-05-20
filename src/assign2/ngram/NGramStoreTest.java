@@ -4,8 +4,8 @@
 package assign2.ngram;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -52,6 +52,105 @@ public class NGramStoreTest {
 	 * 
 	 * }
 	 */
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#addNGram(assign2.ngram.NGramContainer)} . <br/>
+	 * <br/>
+	 * Test NGramStore's method, when context is supplied with an input value,
+	 * predictions and probabilities are displayed and by adding a "null" value
+	 * of ngram to the store and then expecting an NGramExpection as part of the
+	 * code. NGramException is thrown
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test(expected = NGramException.class)
+	public void Test_addNGram_Exception_Test1() throws NGramException {
+		NGramStore store = new NGramStore();
+		String context = "";
+		String[] predictions = { "Cash", "Valuables", "Belongings" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		store.addNGram(node);
+	}
+
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#addNGram(assign2.ngram.NGramContainer)} . <br/>
+	 * <br/>
+	 * Test NGramStore's method, where value of context is the same for two user
+	 * input scenarios and the node displays the results for the latest entry
+	 * and then NGramException is thrown
+	 * 
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test
+	public void Test_addNGram_Test2() throws NGramException {
+		NGramStore store = new NGramStore();
+		String context = "I'am going to";
+		String[] predictions = { "KG", "GP", "City" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		store.addNGram(node);
+		NGramNode nodeGet = (NGramNode) store.getNGram("I'am going to");
+		assertEquals(node.toString(), nodeGet.toString());
+
+		String context2 = "You're not getting it";
+		String[] predictions2 = { "Sonny", "Brother", "Pal" };
+		Double[] probabilities2 = { 0.1, 0.1, 0.1 };
+
+		NGramNode node2 = new NGramNode(context2, predictions2, probabilities2);
+		store.addNGram(node2);
+		NGramNode nodeGet2 = (NGramNode) store
+				.getNGram("You're not getting it");
+		assertEquals(node2.toString(), nodeGet2.toString());
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("I'am going to | KG : 0.1\nI'am going to | GP : 0.1\nI'am going to | City : 0.1\n");
+		sb.append("\n");
+		sb.append("You're not getting it | Sonny : 0.1\nYou're not getting it | Brother : 0.1\nYou're not getting it | Pal : 0.1\n");
+		sb.append("\n");
+		assertEquals(sb.toString(), store.toString());
+
+	}
+
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#addNGram(assign2.ngram.NGramContainer)} . <br/>
+	 * <br/>
+	 * Test NGramStore's method, where value of context is the same for two user
+	 * input scenarios and the node displays the results for the latest entry
+	 * and then NGramException is thrown
+	 * 
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test
+	public void Test_addNGram_Test3() throws NGramException {
+		NGramStore store = new NGramStore();
+		String context = "Come Here And Deposit Your";
+		String[] predictions = { "Cash", "Valuables", "Belongings" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		store.addNGram(node);
+
+		String context2 = "Come Here And Deposit Your";
+		String[] predictions2 = { "Cash1", "Valuables1", "Belongings1" };
+		Double[] probabilities2 = { 0.11, 0.11, 0.11 };
+		NGramNode node2 = new NGramNode(context2, predictions2, probabilities2);
+
+		store.addNGram(node);
+		store.addNGram(node2);
+		NGramNode nodeGet = (NGramNode) store
+				.getNGram("Come Here And Deposit Your");
+		assertEquals(nodeGet.toString(), node2.toString());
+		assertNotEquals(nodeGet.toString(), node.toString());
+
+	}
 
 	/**
 	 * Test method :
@@ -65,7 +164,7 @@ public class NGramStoreTest {
 	 */
 
 	@Test
-	public void Test_addNGram_Test3() throws NGramException {
+	public void Test_addNGram_Test4() throws NGramException {
 		NGramStore store = new NGramStore();
 		String context = "Come Here And Deposit Your";
 		String[] predictions = { "Cash", "Valuables", "Belongings" };
@@ -83,6 +182,52 @@ public class NGramStoreTest {
 	 * Test method :
 	 * {@link assign2.ngram.NGramStore#removeNGram(java.lang.String)} . <br/>
 	 * <br/>
+	 * Test NGramStore's method, where the inputs are given but a "null" value
+	 * is tried to be removed from the ngram and then NGramException is thrown
+	 * 
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test(expected = NGramException.class)
+	public void Test_removeNGram1() throws NGramException {
+		NGramStore store = new NGramStore();
+		String context = "Please Tell Us";
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		store.removeNGram(null);
+
+	} 
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#removeNGram(java.lang.String)} . <br/>
+	 * <br/>
+	 * Test NGramStore's method, where the inputs are given but an "empty string" value
+	 * is tried to be removed from the ngram and then NGramException is thrown
+	 * 
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test(expected = NGramException.class)
+	public void Test_removeNGram2() throws NGramException {
+		NGramStore store = new NGramStore();
+		String context = "Please Tell Us";
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+		store.removeNGram("");
+
+	} 
+
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#removeNGram(java.lang.String)} . <br/>
+	 * <br/>
 	 * Test NGramStore's method, where context is input with no value and ngram
 	 * is input as null and then NGramException is thrown
 	 * 
@@ -91,7 +236,7 @@ public class NGramStoreTest {
 	 */
 
 	@Test
-	public void Test_removeNGram1() throws NGramException {
+	public void Test_removeNGram3() throws NGramException {
 		NGramStore store = new NGramStore();
 		String context = "Please Tell Us";
 		String[] predictions = { "How", "Are", "You" };
@@ -116,7 +261,7 @@ public class NGramStoreTest {
 	 */
 
 	@Test
-	public void Test_removeNGram2() throws NGramException {
+	public void Test_removeNGram4() throws NGramException {
 		NGramStore store = new NGramStore();
 		String context = "Hello";
 		String[] predictions = { "Mister", "Mrs", "Master" };
@@ -141,7 +286,7 @@ public class NGramStoreTest {
 	 */
 
 	@Test
-	public void Test_removeNGram3() throws NGramException {
+	public void Test_removeNGram5() throws NGramException {
 		NGramStore store = new NGramStore();
 		String context = "The Hall Is Filled in With";
 		String[] predictions = { "Fans", "Pamphlets", "Brochures" };
@@ -156,7 +301,7 @@ public class NGramStoreTest {
 	}
 
 	@Test
-	public void Test_removeNGram4() throws NGramException {
+	public void Test_removeNGram6() throws NGramException {
 		NGramStore store = new NGramStore();
 		String context = "The Hall Is Filled-In With";
 		String[] predictions = { "Fans", "Pamphlets", "Brochures" };
@@ -185,47 +330,6 @@ public class NGramStoreTest {
 	public void Test_getNGramsFromService_Exception1() throws NGramException {
 
 	}
-
-	/*
-	 * @Test public void toString_Test1() throws NGramException { String[] words
-	 * = { "Please", "Tell", "Me", "Your" }; String[] predictions = { "How",
-	 * "Are", "You" }; Double[] probabilities = { 0.1, 0.1, 0.1 };
-	 * 
-	 * NGramNode node = new NGramNode(words, predictions, probabilities);
-	 * assertEquals("Please Tell Me Your", node.getContext());
-	 * 
-	 * NGramStore store = new NGramStore(); store.addNGram(node);
-	 * 
-	 * // the format #.###### means show Digit, zero shows as absent. so 0.1
-	 * cannot be show as 0.100000 StringBuffer sb = new StringBuffer();
-	 * sb.append(
-	 * "Please Tell Me Your | How : 0.1\nPlease Tell Me Your | Are : 0.1\nPlease Tell Me Your | You : 0.1\n"
-	 * ); sb.append("\n"); assertEquals(sb.toString(), store.toString());
-	 * 
-	 * }
-	 * 
-	 * @Test public void toString_Test2() throws NGramException { NGramStore
-	 * store = new NGramStore(); String[] words = { "Please", "Tell", "Me"};
-	 * String[] predictions = { "How", "Now", "This" }; Double[] probabilities =
-	 * { 0.1, 0.1, 0.1 };
-	 * 
-	 * NGramNode node = new NGramNode(words, predictions, probabilities);
-	 * assertEquals("Please Tell Me", node.getContext());
-	 * 
-	 * NGramNode node2 = new NGramNode(words, predictions, probabilities);
-	 * node2.setContext("Come Here Once"); node2.setPredictions(new String[]{
-	 * "a", "in", "more", "or"});
-	 * 
-	 * store.addNGram(node); store.addNGram(node2);
-	 * 
-	 * StringBuffer sb = new StringBuffer(); sb.append(
-	 * "Please Tell Me | How : 0.100000\nPlease Tell Me | Now : 0.100000\nPlease Tell Me | This : 0.100000\n"
-	 * ); sb.append("\n"); sb.append(
-	 * "Come Here Once | Once : 0.100000\nCome Here Once | Again : 0.100000\nCome Here Once | Fast : 0.100000\n"
-	 * ); assertEquals(sb.toString(), store.toString());
-	 * 
-	 * }
-	 */
 
 	@Test
 	public void toString_Test1() throws NGramException {
@@ -383,8 +487,8 @@ public class NGramStoreTest {
 	 * Test method : {@link assign2.ngram.NGramNode#toString()}. <br/>
 	 * <br/>
 	 * Test NGramNode method, when probabilities are displayed exactly for the
-	 * user input by getting added exactly after the predictions, here the
-	 * third probability is 0.359035 mismatching with the below string buffer
+	 * user input by getting added exactly after the predictions, here the third
+	 * probability is 0.359035 mismatching with the below string buffer
 	 * operation's probability 0.583588. So, assertNotEquals is used and
 	 * checking as part of the code whether the string buffer returned is exact
 	 * and correct in the store and also matches well with the number and length
@@ -401,15 +505,14 @@ public class NGramStoreTest {
 
 		NGramNode node = new NGramNode(words, predictions, probabilities);
 		node.setContext("Gentlemen are Informed");
-		
+
 		NGramStore store = new NGramStore();
 		store.addNGram(node);
 
 		StringBuffer sb = new StringBuffer();
 
 		sb.append("Gentlemen are Informed | regarding : 0.736578\nGentlemen are Informed | gently : 0.679879\nGentlemen are Informed | everything : 0.583588\n");
-		assertNotEquals(sb.toString(),
-				store.toString());
+		assertNotEquals(sb.toString(), store.toString());
 	}
 
 	/**
@@ -433,19 +536,18 @@ public class NGramStoreTest {
 
 		NGramNode node = new NGramNode(words, predictions, probabilities);
 		node.setContext("Gentlemen are Informed");
-		
+
 		NGramStore store = new NGramStore();
 		store.addNGram(node);
 
 		StringBuffer sb = new StringBuffer();
-		
+
 		sb.append("Passengers are requested to | honestly : 0.736578\nPassengers are requested to | sincerely : 0.953905\nPassengers are requested to | exactly : 0.359035\n");
 		assertNotEquals(
 				"Gentlemen are Informed | regarding : 0.736578\nGentlemen are Informed | gently : 0.679879\nGentlemen are Informed | everything : 0.583588\n",
 				node.toString());
 	}
-	
-	
+
 	@Test
 	public void toString_Test8() throws NGramException {
 		NGramStore store = new NGramStore();
@@ -458,7 +560,7 @@ public class NGramStoreTest {
 
 		NGramNode node2 = new NGramNode(words, predictions, probabilities);
 		node2.setContext("Come Here Once");
-		node2.setPredictions(new String[] { "a", "in", "more"});
+		node2.setPredictions(new String[] { "a", "in", "more" });
 
 		store.addNGram(node);
 		store.addNGram(node2);
@@ -467,6 +569,32 @@ public class NGramStoreTest {
 		sb.append("Please Tell Me | How : 0.1\nPlease Tell Me | Now : 0.1\nPlease Tell Me | This : 0.1\n");
 		sb.append("\n");
 		sb.append("Come Here Once | a : 0.1\nCome Here Once | in : 0.1\nCome Here Once | more : 0.1\n");
+		sb.append("\n");
+		assertEquals(sb.toString(), store.toString());
+
+	}
+
+	@Test
+	public void toString_Test9() throws NGramException {
+		NGramStore store = new NGramStore();
+		String[] words = { "Please", "Tell", "Me" };
+		String[] predictions = { "How", "Now", "This" };
+		Double[] probabilities = { 0.2, 0.1, 0.1 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals("Please Tell Me", node.getContext());
+
+		NGramNode node2 = new NGramNode(words, predictions, probabilities);
+		node2.setContext("Come Here Once");
+		node2.setPredictions(new String[] { "a", "in", "more" });
+
+		store.addNGram(node);
+		store.addNGram(node2);
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("Please Tell Me | How : 0.2\nPlease Tell Me | Now : 0.1\nPlease Tell Me | This : 0.1\n");
+		sb.append("\n");
+		sb.append("Come Here Once | a : 0.2\nCome Here Once | in : 0.1\nCome Here Once | more : 0.1\n");
 		sb.append("\n");
 		assertEquals(sb.toString(), store.toString());
 
