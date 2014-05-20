@@ -875,4 +875,27 @@ public class NGramNodeTest {
 				node.toString());
 	}
 
+	/**
+	 * Test method : {@link assign2.ngram.NGramNode#toString()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, when the words of the context are input at random
+	 * by the users without taking care of the white spaces So, assertEquals is
+	 * used and checking whether the input is exact and correct in the node and
+	 * then NGramException is thrown
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test
+	public void toString_Test6() throws NGramException {
+		String[] words = { " Children ", " Are ", " Educated " };
+		String[] predictions = { "regarding", "gently", "about every single thing" };
+		Double[] probabilities = { 0.736578, 0.679879, 0.359035 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals(
+				" Children   Are   Educated  | regarding : 0.736578\n Children   Are   Educated  | gently : 0.679879\n Children   Are   Educated  | about every single thing : 0.359035\n",
+				node.toString());
+	}
+
 }
