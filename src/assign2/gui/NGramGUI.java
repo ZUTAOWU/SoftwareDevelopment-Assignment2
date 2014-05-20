@@ -127,9 +127,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		}
 		return sb.toString();
 	}
-
-	
-	
 	
 	/**
 	 * @see java.lang.Runnable#run()

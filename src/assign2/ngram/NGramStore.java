@@ -60,7 +60,6 @@ public class NGramStore implements NGramMap {
 		if (factory == null) {
 			throw new NGramException("NGram Service unavailable");
 		}
-		
 
 		try {
 			GenerationService service = factory.newGenerationService();
