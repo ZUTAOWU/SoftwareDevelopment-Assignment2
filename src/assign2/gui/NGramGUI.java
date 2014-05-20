@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+
 import assign2.ngram.NGramException;
 import assign2.ngram.NGramNode;
 import assign2.ngram.NGramStore;
@@ -57,7 +59,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private void createSearchButtonGUI() {
 		btmPanel = new JPanel();
         btmPanel.setLayout(new FlowLayout());
-        JButton searchButton = new JButton("Search Suggestion");
+        JButton searchButton = new JButton("Search");
         searchButton.addActionListener(this);
 	    btmPanel.add(searchButton);
         this.getContentPane().add(btmPanel, BorderLayout.PAGE_END);
@@ -78,16 +80,16 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	 */
 	private void createInputAreaGUI() {
 		JPanel textPanel = new JPanel(); 
-		textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Input text to search", TitledBorder.CENTER, TitledBorder.TOP));
+		textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Ngram Search Engine", TitledBorder.CENTER, TitledBorder.TOP));
 		
 		textPanel.setLayout(new FlowLayout());
 		textPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		JLabel searchLabel = new JLabel("Input Seach String: ");
+		JLabel searchLabel = new JLabel("Input search text: ");
 		textPanel.add(searchLabel);
 		
 		textSearch = new JTextField(20);
 		textPanel.add(textSearch);
-		JLabel suggestionNumberLabel = new JLabel("suggestion Number: ");
+		JLabel suggestionNumberLabel = new JLabel("Specify the number of suggestions: ");
 		textPanel.add(suggestionNumberLabel);
 
 		suggestionNumber = new JTextField(10);
@@ -106,7 +108,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			}
 			return results;
 		} else {
-			throw new NGramException("Please Input valid text for search!");
+			throw new NGramException("Please input a valid search text!");
 		}
 	}
 	
@@ -147,7 +149,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	public void actionPerformed(ActionEvent e) {
 		String buttonString = e.getActionCommand();
 
-		if (buttonString.equals("Search Suggestion")) {
+		if (buttonString.equals("Search")) {
 			String searchText = textSearch.getText();
 			String searchNumberStr = suggestionNumber.getText();
 
@@ -155,7 +157,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			try {
 				seachNumber = Integer.valueOf(searchNumberStr);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this, "Please Input Valid Search Number!");
+				JOptionPane.showMessageDialog(this, "Please input a valid number for search!");
 				e1.printStackTrace();
 				return;
 			}
@@ -165,7 +167,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			try {
 				searchTextArr = parseInput(searchText);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this, "Please Input Valid Search Texts!");
+				JOptionPane.showMessageDialog(this, "Please input valid search texts!");
 				e1.printStackTrace();
 				return;
 			}
@@ -177,7 +179,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 				try {
 					ns.getNGramsFromService(s, seachNumber);
 				} catch (NGramException e1) {
-					JOptionPane.showMessageDialog(this, "Please Input Valid Search Texts!");
+					JOptionPane.showMessageDialog(this, "Please input valid search texts!");
 					e1.printStackTrace();
 					return;
 				}
