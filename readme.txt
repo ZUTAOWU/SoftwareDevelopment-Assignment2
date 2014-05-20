@@ -35,6 +35,6 @@ Modification on 20th May
 
 Questions:
  1 what if when the number of predictions and number of probilities are different.
- 2 NGramStore can we throw exception when we add null, because for test cases.
+ 2 NGramStore can we throw exception when we add null and remove null and empty string, because for test cases.
  3 using special characters/symbols of user input.
  4 asd,test,  is invalid or valid ?
