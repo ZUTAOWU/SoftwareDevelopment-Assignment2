@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities;
  */
 public class Suggestions {
 	public static void main(String[] args) {
+		// call up the Main GUI method
 		SwingUtilities.invokeLater(new NGramGUI());
 	}
 }

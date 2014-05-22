@@ -37,11 +37,17 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 	
-	private JPanel btmPanel;
+
+	// input field of test search
 	private JTextField textSearch;
+	// input field of suggestion number 
 	private JTextField suggestionNumber;
 	
+	// bottom panel hold the search button
+	private JPanel btmPanel;
+	// result panel show the result
 	private JPanel resultPanel;
+	// chart panel show the bar chart result 
 	private JPanel chartPanel;
 	
 	private void createGUI() {
@@ -53,9 +59,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
         createSearchButtonGUI();
 	}
 
-	/**
-	 * 
-	 */
 	private void createSearchButtonGUI() {
 		btmPanel = new JPanel();
         btmPanel.setLayout(new FlowLayout());
@@ -65,9 +68,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
         this.getContentPane().add(btmPanel, BorderLayout.PAGE_END);
 	}
 
-	/**
-	 * 
-	 */
 	private void createResultGUI() {
 		resultPanel = new ResultPanel();
         this.getContentPane().add(resultPanel, BorderLayout.LINE_START);
@@ -75,9 +75,6 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
         this.getContentPane().add(chartPanel, BorderLayout.CENTER);
 	}
 
-	/**
-	 * 
-	 */
 	private void createInputAreaGUI() {
 		JPanel textPanel = new JPanel(); 
 		textPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Ngram Search Engine", TitledBorder.CENTER, TitledBorder.TOP));
