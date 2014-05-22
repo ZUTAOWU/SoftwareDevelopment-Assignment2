@@ -22,20 +22,29 @@ public class ResultPanel extends JPanel {
 	private static final long serialVersionUID = 1937556717072963711L;
 	private JTextArea resultDisplay;
 	JScrollPane scrollPane;
+	
+	
+	/**
+	 * ResultPanel hold the JTextArea which show the search result
+	 */
 	public ResultPanel() {
 		setLayout(new BorderLayout());
 		setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true),"Results", TitledBorder.CENTER, TitledBorder.TOP));
 		resultDisplay = new JTextArea("");
 		resultDisplay.setEditable(false);
+		// user scrollPane to hold resultDisplay to adapt for long text
 		scrollPane = new JScrollPane(resultDisplay, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setPreferredSize(new Dimension(300,HEIGHT));
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
 
+	/**
+	 * this method is used for showing the search result
+	 * @param searchResult
+	 */
 	public void showResultText(String searchResult) {
 		StringBuffer resultText = new StringBuffer();
 		resultText.append(searchResult);
-		resultText.append("\n");
 		resultDisplay.setText(resultText.toString());
 	}
 
