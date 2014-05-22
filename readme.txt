@@ -1,41 +1,39 @@
 Assignment2
 
-Works not finished:
+Final Work Schedule:
 
-Time manage:
+May 16th to May 19th (4 days)
 
-16th to 19th(4 days)
-
-Kauski: test cases (Each class at least 40 test cases)
-Tony  : finish and recheck all codes
+Kaushik : Test cases (Each class at least 35 test cases)
+Tony  : Finish and recheck all code
 ------------------------------------------------------
-20th to 23th(4days)
+May 20th to May 23rd (4 days)
 
-Kaushik: GUI test doc
-Tony   : add more test cases and GUI test cases
+Kaushik: GUI test doc with the GUI test cases
+Tony   : Add more test cases and GUI test cases
 ------------------------------------------------------
-24th to 26th(3days)
+May 24th to May 26th (3 days)
 
-Kaushik: comments and recheck the whole project
-Tony   : comments and recheck the whole project
+Kaushik: Draft comments and recheck the whole project
+Tony   : Draft comments and recheck the whole project
 ------------------------------------------------------
 
 Modification on 19th May
 
-1 change HashMap to LinkedHashMap
-2 when getNGramsFromService, we can not add null to NGramStore
-3 In GUI, show result texts do not use NGramStore.toString(). Do this is because need header
+1 Change HashMap to LinkedHashMap
+2 When getNGramsFromService, we cannot add null to NGramStore
+3 In GUI, show result texts do not use NGramStore.toString(). Do this is because need header......
 
 Modification on 20th May
 
-1 trim spaces in input
-2 do not search duplicate strings
+1 Trim spaces in input
+2 Do not search for duplicate strings
 
 ------------------------------------------------------
 
 Questions:
- 1 what if when the number of predictions and number of probilities are different.
- 2 NGramStore can we throw exception when we add null and remove null and empty string, because for test cases.
- 3 using special characters/symbols of user input.
- 4 asd,test,  is invalid or valid ?
+ 1 Case when the number of predictions and number of probabilities are different.
+ 2 Doubt about test cases - In NGramStore can we throw exception when we add null and remove null and empty string
+ 3 Using special characters/symbols of user input.
+ 4 asd,test,  is this input valid or invalid ?
  5 serialVersionUID ? @SuppressWarnings("serial") ?
