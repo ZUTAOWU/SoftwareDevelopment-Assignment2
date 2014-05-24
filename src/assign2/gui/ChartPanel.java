@@ -5,15 +5,19 @@ package assign2.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
+
 import assign2.ngram.NGramContainer;
 import assign2.ngram.NGramMap;
 
@@ -127,7 +131,7 @@ public class ChartPanel extends JPanel {
 	 * show the single result from node on the Chart panel
 	 * @param node
 	 */
-	public void ShowResultChart(NGramContainer node){
+	public void showResultChart(NGramContainer node){
 		remove(chartPanel);
 		dataset = createDataset(node);
         chart = createChart(dataset, ChartTitle);
@@ -140,12 +144,26 @@ public class ChartPanel extends JPanel {
 	 * @param contexts - contexts array hold each context 
 	 * @param store - the NGramStore which store all results
 	 */
-	public void ShowResultChart(String[] contexts, NGramMap store){
+	public void showResultChart(String[] contexts, NGramMap store){
 		remove(chartPanel);
 		dataset = createDataset(contexts, store);
         chart = createChart(dataset, ChartTitle);
         chartPanel = new org.jfree.chart.ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
+	}
+	
+	/**
+	 * Clear all result on Chart
+	 */
+	public void clearResultChart() {
+		//dataset.
+//		chartPanel.remove((Component)chart);
+//		remove(chartPanel);
+//		System.out.println("clearResultChart!!!");
+//		dataset = createDataset();
+//        chart = createChart(dataset, ChartTitle);
+//        chartPanel = new org.jfree.chart.ChartPanel(chart);
+//        add(chartPanel, BorderLayout.CENTER);
 	}
 	
 

@@ -47,6 +47,13 @@ public class ResultPanel extends JPanel {
 		resultText.append(searchResult);
 		resultDisplay.setText(resultText.toString());
 	}
+	
+	/**
+	 * clear all the result on result panel
+	 */
+	public void clearResult(){
+		resultDisplay.setText("");
+	}
 
 
 

@@ -20,16 +20,23 @@ Kaushik: comments and recheck the whole project
 Tony   : comments and recheck the whole project
 ------------------------------------------------------
 
-Modification on 19th May
+19th May Modification
 
 1 change HashMap to LinkedHashMap
 2 when getNGramsFromService, we can not add null to NGramStore
 3 In GUI, show result texts do not use NGramStore.toString(). Do this is because need header
 
-Modification on 20th May
+20th May Modification
 
 1 trim spaces in input
 2 do not search duplicate strings
+
+
+24th May Modification
+
+1 using thread on GUI
+2 disable button and other input component on GUI when searching
+
 
 ------------------------------------------------------
 
@@ -39,3 +46,4 @@ Questions:
  3 using special characters/symbols of user input.
  4 asd,test,  is invalid or valid ?
  5 serialVersionUID ? @SuppressWarnings("serial") ?
+

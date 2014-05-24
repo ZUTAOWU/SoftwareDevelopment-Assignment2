@@ -48,11 +48,15 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private JTextField suggestionNumber;
 	// bottom panel hold the search button
 	private JPanel btmPanel;
+	private JButton searchButton;
 	// result panel show the result
 	private JPanel resultPanel;
 	// chart panel show the bar chart result 
 	private JPanel chartPanel;
 	
+	private Thread run;
+	
+	private NGramStore ns;
 	/*
 	 * createGUI
 	 */
@@ -71,7 +75,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private void createSearchButtonGUI() {
 		btmPanel = new JPanel();
         btmPanel.setLayout(new FlowLayout());
-        JButton searchButton = new JButton("Search");
+        searchButton = new JButton("Search");
         searchButton.addActionListener(this);
 	    btmPanel.add(searchButton);
         this.getContentPane().add(btmPanel, BorderLayout.PAGE_END);
@@ -174,7 +178,110 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	/**
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
-	@Override
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		String buttonString = e.getActionCommand();
+//
+//		if (buttonString.equals("Search")) {
+//			String searchText = textSearch.getText();
+//			String searchNumberStr = suggestionNumber.getText();
+//
+//			// get search number and validation
+//			Integer seachNumber = null;
+//			try {
+//				seachNumber = Integer.valueOf(searchNumberStr);
+//			} catch (Exception e1) {
+//				JOptionPane.showMessageDialog(this, "Please input a valid number for search!");
+//				e1.printStackTrace();
+//				return;
+//			}
+//
+//			// get search texts and validation
+//			String[] searchTextArr = null;
+//			try {
+//				searchTextArr = parseInput(searchText);
+//			} catch (Exception e1) {
+//				// if input string is invalid , then show the warning
+//				JOptionPane.showMessageDialog(this, "Please input valid search texts!");
+//				e1.printStackTrace();
+//				return;
+//			}
+//			
+//			// use LinkedHashSet to ensure there are no duplicated texts to search
+//			Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(searchTextArr));
+//			NGramStore ns = new NGramStore();
+//			for (String s : mySet) {
+//				try {
+//					// for each search text, get suggestions from NGram services
+//					ns.getNGramsFromService(s, seachNumber); 
+//				} catch (NGramException e1) {
+//					// if can not get correct result from NGramService, then show the warning  
+//					JOptionPane.showMessageDialog(this, "Please input valid search texts!");
+//					e1.printStackTrace();
+//					return;
+//				}
+//			}
+//			
+//			// show all the result on GUI from the store
+//			String resultStr = getResult(mySet.toArray(new String[mySet.size()]), ns);
+//			((ResultPanel) resultPanel).showResultText(resultStr);
+//			// show the result by bar chart
+//			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
+//			
+//			// update the result panel
+//			resultPanel.updateUI();
+//			chartPanel.updateUI();
+//			System.out.println(ns);
+//		}
+//	}
+	
+	/*
+	 * @param seachNumber
+	 * @param searchTextArr
+	 */
+	private void searchAndShowResult(final Integer seachNumber, final String[] searchTextArr) {
+		// use LinkedHashSet to ensure there are no duplicated texts to search
+		//final Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(searchTextArr));
+		Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(searchTextArr));
+		((ResultPanel) resultPanel).clearResult();
+		((ChartPanel) chartPanel).clearResultChart();
+		for (String s : mySet) {
+			try {
+				// for each search text, get suggestions from NGram services
+				ns.getNGramsFromService(s, seachNumber); 
+			} catch (NGramException e1) {
+				// if can not get correct result from NGramService, then show the warning  
+				//JOptionPane.showMessageDialog(this, "Please input valid search texts!");
+				e1.printStackTrace();
+				return;
+			}
+			
+		}
+		System.out.println(ns);
+		// show all the result on GUI from the store
+		String resultStr = getResult(mySet.toArray(new String[mySet.size()]), ns);
+		((ResultPanel) resultPanel).showResultText(resultStr);
+		// show the result by bar chart
+		((ChartPanel) chartPanel).showResultChart(searchTextArr,ns);
+		// update the result panel
+		resultPanel.updateUI();
+		chartPanel.updateUI();
+	}
+	
+	private void disableComponent() {
+		searchButton.setText("Searching");
+		searchButton.setEnabled(false);
+		textSearch.setEnabled(false);
+		suggestionNumber.setEnabled(false);
+	}
+	
+	private void EnableComponent() {
+		searchButton.setText("Search");
+		searchButton.setEnabled(true);
+		textSearch.setEnabled(true);
+		suggestionNumber.setEnabled(true);
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		String buttonString = e.getActionCommand();
 
@@ -183,7 +290,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			String searchNumberStr = suggestionNumber.getText();
 
 			// get search number and validation
-			Integer seachNumber = null;
+			final Integer seachNumber;
 			try {
 				seachNumber = Integer.valueOf(searchNumberStr);
 			} catch (Exception e1) {
@@ -193,7 +300,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			}
 
 			// get search texts and validation
-			String[] searchTextArr = null;
+			final String[] searchTextArr;
 			try {
 				searchTextArr = parseInput(searchText);
 			} catch (Exception e1) {
@@ -203,31 +310,16 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 				return;
 			}
 			
-			// use LinkedHashSet to ensure there are no duplicated texts to search
-			Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(searchTextArr));
-			NGramStore ns = new NGramStore();
-			for (String s : mySet) {
-				try {
-					// for each search text, get suggestions from NGram services
-					ns.getNGramsFromService(s, seachNumber);
-				} catch (NGramException e1) {
-					// if can not get correct result from NGramService, then show the warning  
-					JOptionPane.showMessageDialog(this, "Please input valid search texts!");
-					e1.printStackTrace();
-					return;
+			ns = new NGramStore();
+			run = new Thread() {
+				@Override
+				public void run() {
+					disableComponent();
+					searchAndShowResult(seachNumber, searchTextArr);
+					EnableComponent();
 				}
-			}
-			
-			// show all the result on GUI from the store
-			String resultStr = getResult(mySet.toArray(new String[mySet.size()]), ns);
-			((ResultPanel) resultPanel).showResultText(resultStr);
-			// show the result by bar chart
-			((ChartPanel) chartPanel).ShowResultChart(searchTextArr,ns);
-			
-			// update the result panel
-			resultPanel.updateUI();
-			chartPanel.updateUI();
-			System.out.println(ns);
+			};
+			run.start();
 		}
 	}
 	
