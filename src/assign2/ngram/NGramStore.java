@@ -24,7 +24,7 @@ public class NGramStore implements NGramMap {
 	 * NGramStore constructor
 	 */
 	public NGramStore() {
-		// LinkedHashMap is used for maintaining the order of user input
+		// LinkedHashMap is used in order to maintain the order of user input
 		ngramMap = new LinkedHashMap<String, NGramContainer>();
 	}
 
@@ -63,12 +63,12 @@ public class NGramStore implements NGramMap {
 
 		NgramServiceFactory factory = NgramServiceFactory
 				.newInstance(SimpleNGramGenerator.Key);
-		// Throw NGramException, if the service fails to connect
+		// Throw NGramException if the service fails to connect
 		if (factory == null) {
 			throw new NGramException("NGram Service unavailable");
 		}
 
-		// Throw NGramException, if the NGramContainer cannot be created.
+		// Throw NGramException if the NGramContainer cannot be created.
 		try {
 			GenerationService service = factory.newGenerationService();
 			TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5",
@@ -77,24 +77,21 @@ public class NGramStore implements NGramMap {
 			List<Double> logProbs = tokenSet.getProbabilities();
 			List<Double> probs = new ArrayList<Double>();
 
-			// Convert mathematical log of base 10 probability to normal
-			// probability
+			// Convert mathematical log of base 10 probability to normal probability
 			for (Double x : logProbs) {
 				probs.add(Math.pow(10.0, x));
 			}
 
-			// convert array list to array
+			// Converting array list to array
 			String[] predictWords = wordsList.toArray(new String[wordsList
 					.size()]);
 			Double[] probabilities = probs.toArray(new Double[probs.size()]);
 
 			if (wordsList.size() < 1) {
-				// Return false and do not store the bare context if the service
-				// returns no predictions
+				// Return false and do not store the bare context if the service returns no predictions
 				return false;
 			} else {
-				// Return true and store the NGram in the Map if the service
-				// returns at least one result
+				// Return true and store the NGram in the Map if the service returns at least one result
 				NGramNode node = new NGramNode(context, predictWords,
 						probabilities);
 				ngramMap.put(context, node);
