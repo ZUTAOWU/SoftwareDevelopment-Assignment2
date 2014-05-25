@@ -58,11 +58,9 @@ public class NGramStore implements NGramMap {
 	 * 
 	 */
 	@Override
-	public boolean getNGramsFromService(String context, int maxResults)
-			throws NGramException {
+	public boolean getNGramsFromService(String context, int maxResults) throws NGramException {
 
-		NgramServiceFactory factory = NgramServiceFactory
-				.newInstance(SimpleNGramGenerator.Key);
+		NgramServiceFactory factory = NgramServiceFactory.newInstance(SimpleNGramGenerator.Key);
 		// Throw NGramException, if the service fails to connect
 		if (factory == null) {
 			throw new NGramException("NGram Service unavailable");
@@ -71,8 +69,7 @@ public class NGramStore implements NGramMap {
 		// Throw NGramException, if the NGramContainer cannot be created.
 		try {
 			GenerationService service = factory.newGenerationService();
-			TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5",
-					context, maxResults, null);
+			TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5",context, maxResults, null);
 			List<String> wordsList = tokenSet.getWords();
 			List<Double> logProbs = tokenSet.getProbabilities();
 			List<Double> probs = new ArrayList<Double>();
@@ -84,8 +81,7 @@ public class NGramStore implements NGramMap {
 			}
 
 			// convert array list to array
-			String[] predictWords = wordsList.toArray(new String[wordsList
-					.size()]);
+			String[] predictWords = wordsList.toArray(new String[wordsList.size()]);
 			Double[] probabilities = probs.toArray(new Double[probs.size()]);
 
 			if (wordsList.size() < 1) {
@@ -95,8 +91,7 @@ public class NGramStore implements NGramMap {
 			} else {
 				// Return true and store the NGram in the Map if the service
 				// returns at least one result
-				NGramNode node = new NGramNode(context, predictWords,
-						probabilities);
+				NGramNode node = new NGramNode(context, predictWords, probabilities);
 				ngramMap.put(context, node);
 				return true;
 			}
