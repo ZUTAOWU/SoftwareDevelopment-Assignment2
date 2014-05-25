@@ -1343,7 +1343,7 @@ public class NGramNodeTest {
 
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramNode#getPredictions(java.lang.String[])}. <br/>
+	 * {@link assign2.ngram.NGramNode#getPredictions()}. <br/>
 	 * <br/>
 	 * Test NGramNode method, when predictions are displayed for the user input,
 	 * checking whether the array of predictions returned is exact and correct

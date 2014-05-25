@@ -355,7 +355,7 @@ public class NGramStoreTest {
 
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * NGramException test
 	 * @throws NGramException
@@ -368,7 +368,7 @@ public class NGramStoreTest {
 	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * NGramException test
 	 * @throws NGramException
@@ -381,7 +381,7 @@ public class NGramStoreTest {
 	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * NGramException test
 	 * @throws NGramException
@@ -394,7 +394,7 @@ public class NGramStoreTest {
 	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * 
 	 * @throws NGramException
@@ -410,7 +410,7 @@ public class NGramStoreTest {
 	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * 
 	 * @throws NGramException
@@ -434,7 +434,7 @@ public class NGramStoreTest {
 	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * @throws NGramException
 	 */
@@ -487,7 +487,7 @@ public class NGramStoreTest {
 	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String, int)} . <br/>
 	 * <br/>
 	 * @throws NGramException
 	 */
