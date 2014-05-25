@@ -38,7 +38,7 @@ public class ChartPanel extends JPanel {
 	private static final String ChartTitle = "Search Statistics";
     
     /*
-     * helper method to insert data to data set
+     * helper method to insert data to the data set
      * @param dataset
      * @param node
      */
@@ -52,7 +52,7 @@ public class ChartPanel extends JPanel {
     }
     
     /*
-     * helper method to create empty data set
+     * helper method to create an empty data set
      * @return
      */
     private  DefaultCategoryDataset createDataset() {
@@ -62,7 +62,7 @@ public class ChartPanel extends JPanel {
     
     
     /*
-     * create data set from single node
+     * creating a data set from a single node
      * @param node
      * @return
      */
@@ -75,7 +75,7 @@ public class ChartPanel extends JPanel {
     }
     
     /*
-     * create data set from String[] contexts and NGramMap store use to generate char
+     * creating data set from String[] contexts and NGramMap store in order to generate characters
      * @param contexts - contexts array hold each context 
      * @param store the - NGramStore which store all results
      * @return DefaultCategoryDataset
@@ -90,8 +90,8 @@ public class ChartPanel extends JPanel {
 
     /*
      * create Chart
-     * @param dataset - main data show on the chart
-     * @param title - show on the top
+     * @param dataset - main data shown on the bar chart
+     * @param title - shown at the top of the bar chart
      * @return JFreeChart
      */
     private JFreeChart createChart(CategoryDataset dataset, String title) {

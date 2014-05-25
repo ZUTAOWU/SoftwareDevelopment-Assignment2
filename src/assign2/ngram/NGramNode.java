@@ -17,7 +17,7 @@ public class NGramNode implements NGramContainer {
 	ArrayList<Double> probabilitiesList;
 
 	/*
-	 * This is a helper method, check if string array is correct
+	 * This is a helper method, checking whether or not the string array is correct
 	 */
 	private boolean checkStringArray(String[] strArr) {
 		boolean isCorrect = true;
@@ -36,7 +36,7 @@ public class NGramNode implements NGramContainer {
 	}
 	
 	/*
-	 * This is a helper method, check if probability array is correct
+	 * This is a helper method, checking whether or not the probability array is correct
 	 */
 	private boolean checkProbArray(Double[] probArr) {
 		boolean isCorrect = true;
@@ -59,7 +59,7 @@ public class NGramNode implements NGramContainer {
 	/**
 	 * This NGramNode constructor is used for building NGramNode instance
 	 * @param words - array of words in order that make up the context <br/>
-	 * @param predictions - array of next words in the phrase as predicted by the model <br/>
+	 * @param predictions - array of the next set of words for a given phrase as predicted by the model <br/>
 	 * @param probabilities - corresponding probabilities of context>prediction w.r.t. model <br/> 
 	 * 
 	 * @throws NGramException
@@ -69,7 +69,7 @@ public class NGramNode implements NGramContainer {
 	 * or the predictions.length is different from probabilities.length
 	 */
 	public NGramNode(String[] words, String[] predictions, Double[] probabilities) throws NGramException {
-		// handle SimulationException
+		// handling SimulationException
 		if(!checkStringArray(words)) {
 			throw new NGramException("words cannnot be null or empty or contains at least one empty or null string.");
 		}
@@ -98,7 +98,7 @@ public class NGramNode implements NGramContainer {
 	/**
 	 * This NGramNode constructor is used for building NGramNode instance
 	 * @param context - context - string containing the context phrase <br/>
-	 * @param predictions - array of next words in the phrase as predicted by the model <br/>
+	 * @param predictions - array of the next set of words for a given phrase as predicted by the model <br/>
 	 * @param probabilities - corresponding probabilities of context>prediction w.r.t. model <br/> 
 	 * 
 	 * @throws NGramException
@@ -114,15 +114,15 @@ public class NGramNode implements NGramContainer {
 		}
 		
 		if(!checkStringArray(predictions)) {
-			throw new NGramException("predictions cannnot be null or empty or contains at least one empty or null string.");
+			throw new NGramException("Predictions cannot be null (OR) empty (OR) contain at least one empty or null string.");
 		}
 		
 		if(!checkProbArray(probabilities)) {
-			throw new NGramException("probabilities cannnot be null or contains at least one entry which is null , zero, negative or greater than 1.0.");
+			throw new NGramException("Probabilities cannot be null (OR) contain at least one entry which is null (OR) zero (OR) negative (OR) greater than 1.0.");
 		}
 		
 		if(predictions.length != probabilities.length) {
-			throw new NGramException("predictions.length is different from probabilities.length.");
+			throw new NGramException("Length of predictions is different from that of length of probabilities.");
 		}
 		//-----------------------------
 		this.context = context;
@@ -149,7 +149,7 @@ public class NGramNode implements NGramContainer {
 	public void setContext(String context) throws NGramException {
 		//Throws: NGramException - if context is null or empty
 		if(context == null || "".equals(context)) {
-			throw new NGramException("context cannot be null or empty.");
+			throw new NGramException("Context cannot be null or empty.");
 		}
 		this.context = context;
 	}
@@ -161,7 +161,7 @@ public class NGramNode implements NGramContainer {
 	public void setContext(String[] words) throws NGramException {
 		// Throws: NGramException if words is null or empty or contains at least one empty or null string
 		if(!checkStringArray(words)) {
-			throw new NGramException("words cannnot be null or empty or contains at least one empty or null string.");
+			throw new NGramException("Words cannnot be null (OR) empty (OR) contain at least one empty or null string.");
 		}
 		// connect string array to string
 		StringBuffer contextBuffer = new StringBuffer();
@@ -190,7 +190,7 @@ public class NGramNode implements NGramContainer {
 	public void setPredictions(String[] predictions) throws NGramException {
 		//Throws: NGramException - if predictions is null or empty or contains at least one empty or null string
 		if(!checkStringArray(predictions)) {
-			throw new NGramException("predictions cannnot be null or empty or contains at least one empty or null string.");
+			throw new NGramException("Predictions cannot be null (OR) empty (OR) contain at least one empty or null string.");
 		}
 		predictionsList.clear();
 		for(int i = 0 ; i < predictions.length ; i++) {
@@ -213,7 +213,7 @@ public class NGramNode implements NGramContainer {
 	public void setProbabilities(Double[] probabilities) throws NGramException {
 		//Throws: NGramException - if probabilities null or contains at least one entry which is null , zero, negative or greater than 1.0
 		if(!checkProbArray(probabilities)) {
-			throw new NGramException("probabilities cannnot be null or contains at least one entry which is null , zero, negative or greater than 1.0.");
+			throw new NGramException("Probabilities cannot be null (OR) contain at least one entry as null (OR) zero (OR) negative (OR) greater than 1.0.");
 		}
 		probabilitiesList.clear();
 		for(int i = 0 ; i < probabilities.length ; i++) {
