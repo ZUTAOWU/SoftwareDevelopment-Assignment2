@@ -603,6 +603,21 @@ public class NGramNodeTest {
 		assertEquals(". . . .", node.getContext());
 	}
 	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#getContext()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, getContext after constructor
+	 */
+	@Test
+	public void Test_getContext4() throws NGramException {
+		String[] words = {"."};
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals(".", node.getContext());
+	}
+	
 
 	/**
 	 * Test method :

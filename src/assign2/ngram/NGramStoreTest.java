@@ -29,29 +29,6 @@ public class NGramStoreTest {
 
 	}
 
-	/*
-	 * @Test(expected = NGramException.class) public void Test_addNGram_Test1()
-	 * throws NGramException { NGramStore store = new NGramStore(); String
-	 * context = null; String[] predictions = { "People", "Are", "Requested" };
-	 * Double[] probabilities = { 0.1, 0.1, 0.1 }; NGramNode node = new
-	 * NGramNode(context, predictions, probabilities); store.addNGram(node);
-	 * 
-	 * NGramNode node2 = (NGramNode) store.getNGram(null); assertEquals(null,
-	 * node2.getContext());
-	 * 
-	 * }
-	 * 
-	 * @Test(expected = NGramException.class) public void Test_addNGram_Test2()
-	 * throws NGramException { NGramStore store = new NGramStore(); String
-	 * context = ""; String[] predictions = { "Fill", "Petrol" }; Double[]
-	 * probabilities = { 0.1 }; NGramNode node = new NGramNode(context,
-	 * predictions, probabilities); store.addNGram(node);
-	 * 
-	 * NGramNode node2 = (NGramNode) store.getNGram(""); assertEquals("",
-	 * node2.getContext());
-	 * 
-	 * }
-	 */
 	
 	/**
 	 * Test method :
@@ -309,8 +286,7 @@ public class NGramStoreTest {
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 		store.addNGram(node);
 		store.removeNGram(context);
-		NGramNode node2 = (NGramNode) store
-				.getNGram("The Hall Is Filled-In With");
+		NGramNode node2 = (NGramNode) store.getNGram("The Hall Is Filled-In With");
 		assertNull(node2);
 
 	}
@@ -319,17 +295,41 @@ public class NGramStoreTest {
 	 * Test method :
 	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
 	 * <br/>
-	 * Test NGramStore's method, where context value is supplied and the
-	 * corresponding context is also removed and then NGramException is thrown
-	 * 
-	 * 
+	 * NGramException test
 	 * @throws NGramException
 	 */
-
 	@Test(expected = NGramException.class)
 	public void Test_getNGramsFromService_Exception1() throws NGramException {
-
+		NGramStore store = new NGramStore();
+		store.getNGramsFromService("", 1);
 	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * <br/>
+	 * NGramException test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_getNGramsFromService_Exception2() throws NGramException {
+		NGramStore store = new NGramStore();
+		store.getNGramsFromService("asd", -1);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramStore#getNGramsFromService(java.lang.String)} . <br/>
+	 * <br/>
+	 * NGramException test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_getNGramsFromService_Exception3() throws NGramException {
+		NGramStore store = new NGramStore();
+		store.getNGramsFromService("asd", 0);
+	}
+
 
 	@Test
 	public void toString_Test1() throws NGramException {
@@ -346,9 +346,6 @@ public class NGramStoreTest {
 		StringBuffer sb = new StringBuffer();
 		sb.append("Please Tell Me Your | Name : 0.875895\nPlease Tell Me Your | Age : 0.793874\nPlease Tell Me Your | Address : 0.538658\n");
 		sb.append("\n");
-
-//		System.out.println(sb.toString());
-//		System.out.println(store.toString());
 
 		assertEquals(sb.toString(), store.toString());
 
