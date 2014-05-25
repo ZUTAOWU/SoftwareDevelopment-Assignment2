@@ -37,13 +37,10 @@ public class test {
 //		
 //		System.out.println(mySet);
 		
-		String ss = ",test,,,,";
+		String ss = null;
 		
 		
-		for(String s : ss.split(",",-1)) {
-			System.out.println("s : " + s);
-		}
-		
+		System.out.println(ss);
 	}
 
 }
