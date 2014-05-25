@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * @author kaushik.muthukrishnan.simili
+ * @author KAUSHIK MUTHUKRISHNAN SIMILI n9000348
  * 
  */
 public class NGramStoreTest {

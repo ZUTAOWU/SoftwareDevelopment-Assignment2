@@ -15,7 +15,7 @@ import assign2.ngram.NGramNode;
 import assign2.ngram.NGramException;
 
 /**
- * @author kaushik.muthukrishnan.simili
+ * @author KAUSHIK MUTHUKRISHNAN SIMILI n9000348
  * 
  */
 public class NGramNodeTest {
