@@ -17,14 +17,14 @@ public class NGramStore implements NGramMap {
 
 	public static final String Key = "068cc746-31ff-4e41-ae83-a2d3712d3e68";
 
-	// ngramMap store the context and node
+	// ngramMap stores the context and node
 	private Map<String, NGramContainer> ngramMap;
 
 	/**
 	 * NGramStore constructor
 	 */
 	public NGramStore() {
-		// LinkedHashMap is used for maintain the input order
+		// LinkedHashMap is used for maintaining the order of user input
 		ngramMap = new LinkedHashMap<String, NGramContainer>();
 	}
 

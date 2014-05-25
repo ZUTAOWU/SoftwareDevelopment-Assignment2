@@ -347,8 +347,8 @@ public class NGramStoreTest {
 		sb.append("Please Tell Me Your | Name : 0.875895\nPlease Tell Me Your | Age : 0.793874\nPlease Tell Me Your | Address : 0.538658\n");
 		sb.append("\n");
 
-		System.out.println(sb.toString());
-		System.out.println(store.toString());
+//		System.out.println(sb.toString());
+//		System.out.println(store.toString());
 
 		assertEquals(sb.toString(), store.toString());
 
@@ -375,8 +375,8 @@ public class NGramStoreTest {
 		sb.append("Please Tell Me | How : 0.658759\nPlease Tell Me | Now : 0.357957\nPlease Tell Me | This : 0.938903\n");
 		sb.append("\n");
 		// sb.append("Come Here Once | And : 0.588589\nCome Here Once | To : 0.498599\nCome Here Once | For : 0.298408\n");
-		System.out.println(sb.toString());
-		System.out.println(store.toString());
+//		System.out.println(sb.toString());
+//		System.out.println(store.toString());
 		assertEquals(sb.toString(), store.toString());
 
 	}
