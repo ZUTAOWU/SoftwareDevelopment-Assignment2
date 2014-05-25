@@ -17,9 +17,10 @@ import assign2.ngram.NGramException;
  * 
  */
 public class NGramNodeTest {
-
+	
 	@BeforeClass
 	public static void setUp() throws Exception {
+		
 	}
 
 	/**
@@ -85,7 +86,6 @@ public class NGramNodeTest {
 	 * 
 	 * @throws NGramException
 	 */
-
 	@Test(expected = NGramException.class)
 	public void Test_Constructor1_Exception3() throws NGramException {
 		String[] words = null;
@@ -94,10 +94,186 @@ public class NGramNodeTest {
 		@SuppressWarnings("unused")
 		NGramNode node = new NGramNode(words, predictions, probabilities);
 	}
-
+	
 	/**
 	 * Test method :
 	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception4() throws NGramException {
+		String[] words = null;
+		String[] predictions = { null };
+		Double[] probabilities = { null };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception5() throws NGramException {
+		String[] words = null;
+		String[] predictions = { "" };
+		Double[] probabilities = { null };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception6() throws NGramException {
+		String[] words = null;
+		String[] predictions = { "", "" };
+		Double[] probabilities = { null, null };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception7() throws NGramException {
+		String[] words = {"test", "test"};
+		String[] predictions = { "", "" };
+		Double[] probabilities = { null, null };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception8() throws NGramException {
+		String[] words = null;
+		String[] predictions = null;
+		Double[] probabilities = null;
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception9() throws NGramException {
+		String[] words = {"test"};
+		String[] predictions = {"test"};
+		Double[] probabilities = {1.001};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception10() throws NGramException {
+		String[] words = {"test"};
+		String[] predictions = {"test", "test"};
+		Double[] probabilities = {0.0, -0.0};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception11() throws NGramException {
+		String[] words = {"test"};
+		String[] predictions = {"test"};
+		Double[] probabilities = {0.0};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception12() throws NGramException {
+		String[] words = {"test"};
+		String[] predictions = {"test"};
+		Double[] probabilities = {-0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception13() throws NGramException {
+		String[] words = {"test"};
+		String[] predictions = {"test", "test"};
+		Double[] probabilities = {-0.1, -0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * other exception test
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor1_Exception14() throws NGramException {
+		String[] words = {"test"};
+		String[] predictions = {"test", "test"};
+		Double[] probabilities = {-0.1, -0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+	}
+
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
 	 * . <br/>
 	 * <br/>
 	 * Test NGramNode second constructor, when context has empty string value,
@@ -118,7 +294,7 @@ public class NGramNodeTest {
 
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
 	 * . <br/>
 	 * <br/>
 	 * Test NGramNode second constructor, when context is supplied with an input
@@ -128,7 +304,6 @@ public class NGramNodeTest {
 	 * 
 	 * @throws NGramException
 	 */
-
 	@Test(expected = NGramException.class)
 	public void Test_Constructor2_Exception2() throws NGramException {
 		String context = "test";
@@ -137,32 +312,301 @@ public class NGramNodeTest {
 		@SuppressWarnings("unused")
 		NGramNode node = new NGramNode(context, predictions, probabilities);
 	}
-
+	
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String[], java.lang.String[], java.lang.Double[])}
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
 	 * . <br/>
 	 * <br/>
 	 * Test NGramNode second constructor, when context is supplied with an input
-	 * value, predictions and probabilities are displayed and then
-	 * NGramException is thrown
+	 * value, predictions are displayed and probabilities show null value and
+	 * then expecting an NGramExpection as part of the code. NGramException is
+	 * thrown
 	 * 
 	 * @throws NGramException
 	 */
-
 	@Test(expected = NGramException.class)
 	public void Test_Constructor2_Exception3() throws NGramException {
-		String context = "Hello";
-		String[] predictions = { "How", "Are", "You" };
-		Double[] probabilities = { 0.291898409, 0.229299928 };
+		String context = null;
+		String[] predictions = null;
+		Double[] probabilities = null;
 		@SuppressWarnings("unused")
 		NGramNode node = new NGramNode(context, predictions, probabilities);
-
 	}
 
 	/**
 	 * Test method :
-	 * {@link assign2.ngram.NGramNode#setPredictions(java.lang.String[])}. <br/>
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception4() throws NGramException {
+		String context = null;
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.291898409, 0.229299928 };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception5() throws NGramException {
+		String context = null;
+		String[] predictions = { "", "", "You" };
+		Double[] probabilities = { null, null };
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception6() throws NGramException {
+		String context = null;
+		String[] predictions = {null};
+		Double[] probabilities = { null};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception7() throws NGramException {
+		String context = null;
+		String[] predictions = {"","",""};
+		Double[] probabilities = { 0.1, 0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception8() throws NGramException {
+		String context = "";
+		String[] predictions = {"asd","asd","asd"};
+		Double[] probabilities = { 0.1, 0.1, 0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception9() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd"};
+		Double[] probabilities = { 1.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception10() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd", "asd", "asd"};
+		Double[] probabilities = { 1.0 , 1.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception11() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd", "asd", "asd"};
+		Double[] probabilities = { 1.0 , 1.0, 1.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception12() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd"};
+		Double[] probabilities = {0.0};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception13() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd", "asd"};
+		Double[] probabilities = {0.0};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception14() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd", "asd"};
+		Double[] probabilities = {0.0, 0.0};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception15() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd", "asd"};
+		Double[] probabilities = {-0.1, -0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception16() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd"};
+		Double[] probabilities = {-0.01};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#NGramNode(java.lang.String, java.lang.String[], java.lang.Double[])}
+	 * . <br/>
+	 * <br/>
+	 * @throws NGramException
+	 */
+	@Test(expected = NGramException.class)
+	public void Test_Constructor2_Exception17() throws NGramException {
+		String context = "test";
+		String[] predictions = {"asd","asd","asd"};
+		Double[] probabilities = {-0.1, -0.1, -0.1};
+		@SuppressWarnings("unused")
+		NGramNode node = new NGramNode(context, predictions, probabilities);
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#getContext()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, getContext after constructor
+	 */
+	@Test
+	public void Test_getContext() throws NGramException {
+		String[] words = { "Please", "Tell", "Me", "Your" };
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals("Please Tell Me Your", node.getContext());
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#getContext()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, getContext after constructor
+	 */
+	@Test
+	public void Test_getContext2() throws NGramException {
+		String[] words = { " Please ", " Tell ", " Me ", " Your " };
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals(" Please   Tell   Me   Your ", node.getContext());
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#getContext()}. <br/>
+	 * <br/>
+	 * Test NGramNode method, getContext after constructor
+	 */
+	@Test
+	public void Test_getContext3() throws NGramException {
+		String[] words = { ".", ".", ".", "." };
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals(". . . .", node.getContext());
+	}
+	
+
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#setContext(java.lang.String)}. <br/>
 	 * <br/>
 	 * Test NGramNode method, when the context is set to an empty string and
 	 * then expecting an NGramExpection as part of the code. NGramException is
@@ -181,6 +625,30 @@ public class NGramNodeTest {
 		assertEquals("Please Tell Me Your", node.getContext());
 
 		node.setContext("");
+	}
+	
+	/**
+	 * Test method :
+	 * {@link assign2.ngram.NGramNode#setContext(java.lang.String)}. <br/>
+	 * <br/>
+	 * Test NGramNode method, when the context is set to an empty string and
+	 * then expecting an NGramExpection as part of the code. NGramException is
+	 * thrown
+	 * 
+	 * @throws NGramException
+	 */
+
+	@Test(expected = NGramException.class)
+	public void setContext_Exception2() throws NGramException {
+		String[] words = { "Please", "Tell", "Me", "Your" };
+		String[] predictions = { "How", "Are", "You" };
+		Double[] probabilities = { 0.1, 0.1, 0.1 };
+
+		NGramNode node = new NGramNode(words, predictions, probabilities);
+		assertEquals("Please Tell Me Your", node.getContext());
+
+		String context = null;
+		node.setContext(context);
 	}
 
 	/**
