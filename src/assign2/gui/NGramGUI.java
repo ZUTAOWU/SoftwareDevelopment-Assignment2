@@ -271,13 +271,13 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			try {
 				seachNumber = Integer.valueOf(searchNumberStr);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this, "Please input a valid number (strictly greater than zero without decimal points)!");
+				JOptionPane.showMessageDialog(this, "Please input a natural number (strictly greater than zero without decimal point)!");
 				// e1.printStackTrace();
 				return;
 			}
 			
 			if(seachNumber <= 0) {
-				JOptionPane.showMessageDialog(this, "Please input a valid number (strictly greater than zero without decimal points)!");
+				JOptionPane.showMessageDialog(this, "Please input a natural number (strictly greater than zero without decimal point)!");
 				return;
 			}
 
