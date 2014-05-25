@@ -46,6 +46,8 @@ public class ResultPanel extends JPanel {
 		StringBuffer resultText = new StringBuffer();
 		resultText.append(searchResult);
 		resultDisplay.setText(resultText.toString());
+		// update this panel
+		updateUI();
 	}
 	
 	/**
@@ -53,6 +55,8 @@ public class ResultPanel extends JPanel {
 	 */
 	public void clearResult(){
 		resultDisplay.setText("");
+		// update this panel
+		updateUI();
 	}
 
 

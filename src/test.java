@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -30,11 +31,19 @@ public class test {
 //		String s = df.format(a);
 //		System.out.println(s);
 		
-		String[] test = {"asd","asd"};
+//		String[] test = {"asd","asd"};
+//		
+//		Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(test));
+//		
+//		System.out.println(mySet);
 		
-		Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(test));
+		String ss = ",test,,,,";
 		
-		System.out.println(mySet);
+		
+		for(String s : ss.split(",",-1)) {
+			System.out.println("s : " + s);
+		}
+		
 	}
 
 }
