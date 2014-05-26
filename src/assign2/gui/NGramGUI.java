@@ -36,6 +36,8 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
+	// Maximum suggetion number
+	private static final int MAX_SEARCH_NUM = 5;
 
 	// Input field for search text
 	private JTextField textSearch;
@@ -259,13 +261,13 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			try {
 				seachNumber = Integer.valueOf(searchNumberStr);
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this, "Please input a natural number (strictly greater than zero without decimal point)!");
+				JOptionPane.showMessageDialog(this, "Please input a valid natural number(1-5)!");
 				// e1.printStackTrace();
 				return;
 			}
 			
-			if(seachNumber <= 0) {
-				JOptionPane.showMessageDialog(this, "Please input a natural number (strictly greater than zero without decimal point)!");
+			if(seachNumber <= 0 || seachNumber > MAX_SEARCH_NUM) {
+				JOptionPane.showMessageDialog(this, "Please input a valid natural number(1-5)!");
 				return;
 			}
 
