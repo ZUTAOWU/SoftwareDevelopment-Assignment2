@@ -15,7 +15,7 @@ import com.microsoft.research.webngram.service.GenerationService.TokenSet;
  */
 public class NGramStore implements NGramMap {
 
-	public static final String Key = "068cc746-31ff-4e41-ae83-a2d3712d3e68";
+	private static final String Key = "068cc746-31ff-4e41-ae83-a2d3712d3e68";
 
 	// ngramMap stores the context and node
 	private Map<String, NGramContainer> ngramMap;
