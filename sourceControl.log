@@ -1,0 +1,665 @@
+commit de32edac9b9e31058f549c12e7ccdda34a05d515
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 26 18:14:48 2014 +1000
+
+    - delete temp test file
+    ! update ngram/NGramStore.java
+
+commit 7a43a06f99c1f63cc9aa3a0d2fa2c41432986c28
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 26 18:04:57 2014 +1000
+
+    + add GUI test cases pdf
+
+commit deb0ba549ed160e9f95237a66d00e6f66b261f69
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 26 18:04:33 2014 +1000
+
+    - remove extra public things
+
+commit 7c065c07d4483990afabde27004ab89fe36c0c35
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 26 18:04:01 2014 +1000
+
+    + add test cases from Jim Hogan
+
+commit ee02c440853123cca99dd0960d7938da89225044
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 26 18:03:16 2014 +1000
+
+    - update GUI code style
+
+commit 5c316572df4dc32d88eabe3828a778cc026e8efb
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 26 03:53:40 2014 +1000
+
+    ! Updated the NGram GUI testcases file with the author information.
+
+commit a6831bdf7a5032dde88b559c06174a7f0248cbd4
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 26 03:49:14 2014 +1000
+
+    ! Updated the test files with the author information.
+
+commit d8d60e1cd83e07dcf5712505aa5d2e259b7aaacd
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 26 03:44:35 2014 +1000
+
+    ! Updated the NGram GUI testcases file with the authors information.
+
+commit eb5ba7759e138e79f35e02c517aac610d8ba16e1
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 26 03:39:47 2014 +1000
+
+    ! Updated 2 more negative testcase scenarios
+
+commit ad59c50b8f2ed4c7af69a8a0fb84e297731504bc
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 26 03:17:34 2014 +1000
+
+    ! Updated the GUI code to show the correct error message about number of suggestions inputted by the user.
+
+commit cef52eca2c85e8130722a226d4bda35464b4ca8b
+Merge: 7cad4ec 631665f
+Author: vvilp <vvilp.wu@gmail.com>
+Date:   Sun May 25 23:28:18 2014 +1000
+
+    Merge branch 'dev'
+
+commit 631665f7059187286885212ea0ee43ea77f2ab0c
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 23:24:31 2014 +1000
+
+    ! Updated the document with 3 new testcases.
+
+commit 7cad4ecdb7e45bf77782b3633d546c1613c9a80a
+Merge: 09aaffb ed926a5
+Author: vvilp <vvilp.wu@gmail.com>
+Date:   Sun May 25 23:05:09 2014 +1000
+
+    ! Merge all dev to master
+
+commit 09aaffb5bd1cb535c1db9a4ef5d77ecd4a6b157f
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 21:21:18 2014 +1000
+
+    ! update test cases comments
+
+commit 8966cda227c3f8f1b57b00c94d92d0696b4ffa06
+Merge: 1706baa f65421c
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 21:12:28 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+
+commit 1706baa3a26ddd774715ac260429af4946493bb9
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 21:11:53 2014 +1000
+
+    ! Updated around 23 new testcases in NGramNodeTest.java
+
+commit f65421cbce2f15a8dc012fe45d47c7d4d4990e6f
+Merge: 3d7e753 e3db506
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 21:08:18 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+
+commit 3d7e753f749e14618a6b6ad021f4db0c0c58cae5
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 21:07:16 2014 +1000
+
+    ! update NGramStoreTest.java
+
+commit e3db5060868c4a95c04efe33332940915877ee56
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 19:40:58 2014 +1000
+
+    ! Updated 1 more negative testcase in NGram GUI Testcases.docx
+
+commit 234e6ec5e7a4bf20db69c932b0bc26abf083ac23
+Merge: 02bfb89 4aa3017
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 19:17:37 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+    
+    Conflicts:
+    	src/assign2/ngram/NGramStore.java
+    
+    Updated the new GUI testcases
+
+commit 4aa301725fa785ef667db0d64b20b75f93ae4ae3
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 19:05:00 2014 +1000
+
+    ! update GUI warning message
+    ! update test cases
+
+commit 02bfb892c1608c022193563aedc2dbdb89c79182
+Merge: 81417e4 a0fb355
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 18:08:04 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+
+commit 81417e4cfee13145dc9ddc9d24850888b97fbe74
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 18:07:16 2014 +1000
+
+    ! Updated certain comments on the GUI code.
+
+commit a0fb355d50b601e1fc77863b643c477076c54bff
+Merge: fa60e18 8ca5a0a
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 18:06:50 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+    
+    Conflicts:
+    	src/assign2/gui/ChartPanel.java
+
+commit fa60e1820c0b11dc0865c8262e78a7c317cac9c0
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 15:44:31 2014 +1000
+
+    ! update comment
+    ! update test cases
+
+commit 8ca5a0af0d42049d533e145c5e37b5390a53cd58
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 15:43:08 2014 +1000
+
+    ! Updated the Javadoc code comments in the java classes.
+
+commit 93e11660a67e79cb001d4a7dac36816f550cb994
+Merge: 7e02bbb 7d7dd4a
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 14:39:08 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+
+commit 7e02bbb837c3ecb740b27439c8ca088845ae2ec3
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 25 14:38:33 2014 +1000
+
+    ! Updated certain comments.
+
+commit 7d7dd4ad08bff2283fb1b0d8bfb075d4089bddba
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 25 14:33:56 2014 +1000
+
+    ! update thread process
+    ! update details of GUI
+    + add more comment
+
+commit d653099f5c0b2671d2ce2e31f40112ed9492f1e8
+Merge: d3cba56 a9d192b
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sat May 24 16:39:53 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+
+commit d3cba56c493e7c22ded0bcb0eadeea3917880b45
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sat May 24 16:39:06 2014 +1000
+
+    ! update
+    1 using thread on GUI
+    2 disable button and other input component on GUI when searching
+
+commit a9d192bc1016ce0474932ca270b639a8549dfb31
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sat May 24 11:44:37 2014 +1000
+
+    ! Updated a total of 30 positive and negative testcase scenarios. Also, made a few corrections in a few of the testcases.
+
+commit 9c3b475e33c81eb1efbdd8035cabc5a8e907a2db
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Fri May 23 01:21:31 2014 +1000
+
+    ! Updated the document with some corrections.
+
+commit 651cc73b440b1408ee5a7b73a71f8ea704b4204d
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 22 23:36:04 2014 +1000
+
+    ! Updated a total of 25 positive and negative testcase scenarios.
+
+commit baf2a36d39983d660272267a42b1300a4980d8ed
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 22 22:15:23 2014 +1000
+
+    ! Updated a total of 20 positive and negative testcase scenarios.
+
+commit 7ad4452f959dd2318b3b9cc0c37cd2863f49225a
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 22 20:49:50 2014 +1000
+
+    + add more comments
+
+commit 5c42485f52a5f403cc08f46cd3ee870bec21f46b
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 22 19:49:30 2014 +1000
+
+    + add comments
+
+commit 2d1d8428e94e0d9d6fa4070cabaf612fc8dbe979
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 22 18:43:29 2014 +1000
+
+    ! update one page one test cases
+
+commit 3f6c91253b2e064d6e19f9037fd662d1472f35bd
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 22 02:18:39 2014 +1000
+
+    ! Updated a total of 18 positive and negative testcase scenarios.
+
+commit 90a063079a19bd5c66141ae64c1fe80cccae7605
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 22 01:37:57 2014 +1000
+
+    ! Updated a total of 15 positive and negative testcases.
+
+commit 22399f228b77b6bfacb3c2e66e6fa2d72dca71b0
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 22 01:19:50 2014 +1000
+
+    ! Updated a total of 13 testcases.
+
+commit 0a1959d5b7d142031360b36ceb0bd9ed05127f31
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 22 00:43:02 2014 +1000
+
+    ! Updated a total of 12 positive and negative testcase scenarios.
+
+commit c90651ae2c4aeaa2acd418a790b68eb258677ff4
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 23:53:34 2014 +1000
+
+    ! Updated 5 positive and 5 negative test case scenarios of user input.
+
+commit f4f81f6b42476d88286fbfc7aa883f3efd89d05c
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 22:35:05 2014 +1000
+
+    ! Updated one more negative testcase.
+
+commit 64b79aa0417c2a13b34f0f03f16364b9e018fa55
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 22:23:58 2014 +1000
+
+    ! Updated a small correction in the screenshots of the negative test case scenarios.
+
+commit 16c7fe38162790eeccd1e6333021d4d772c748c1
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 22:16:10 2014 +1000
+
+    ! Updated a few corrections in the negative test case scenarios.
+
+commit aa8aa6d048a440031357eb8a3a95de34c0cf0949
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 22:10:34 2014 +1000
+
+    ! Updated a total of 3 positive and 2 negative testcase scenarios in NGram GUI Testcases.docx
+
+commit 14d9ccfb65b4fae6dc69e9fc54ab57de2d6ccdf6
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 21:29:44 2014 +1000
+
+    ! Updated 1 negative testcase in NGram GUI Testcases.docx
+
+commit 7f56d0c2d1e66a53933773e81f0cf96f732bf825
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 21 21:13:06 2014 +1000
+
+    ! Updated 3 testcases in NGram GUI Testcases.docx
+
+commit c1d9723d73dc702a2ef81c23586ab1ed4489d423
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 16:49:20 2014 +1000
+
+    ! Updated some GUI components.
+
+commit 8400be127926baaaa82f2462a592fbbbc0a059e7
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 16:23:22 2014 +1000
+
+    ! Updated the GUI labels on the ResultPanel assign2/gui/ResultPanel.java
+
+commit 89735c4896571bcb044429138601edb971169b88
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 16:22:24 2014 +1000
+
+    ! Updated the GUI labels on the NGramGUI assign2/gui/NGramGUI.java
+
+commit d920a8f42c504137fe240adffec0fe5f79233092
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 16:20:09 2014 +1000
+
+    ! Changed the GUI labels on the Chart panel assign2/gui/ChartPanel.java
+
+commit 51679b17269391db98c5fa3fe7b6b912d349504b
+Merge: b3f6ae4 74bc39d
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 15:37:09 2014 +1000
+
+    Merge branch 'dev' of https://github.com/ZUTAOWU/Assignment2 into dev
+
+commit b3f6ae48b36f148cc851548c21a1dcab0c266d98
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 15:36:10 2014 +1000
+
+    - update readme.txt
+
+commit fc020586ca08470024935844f7292cb8767f5f81
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 15:33:24 2014 +1000
+
+    ! Updated 3 testcases in NGramStoreTest.java
+
+commit 9a8f8397effe21cebba8eb57b4efae14f6318860
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 20 15:32:11 2014 +1000
+
+    ! Updated 1 testcase in NGramNodeTest.java
+
+commit 74bc39d76b757a670779f3778d363f71dac623f0
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Tue May 20 13:36:29 2014 +1000
+
+    ! update refactor code
+
+commit 845cc77411cf4457f4f21233a7143a87c2cd4476
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Tue May 20 13:24:43 2014 +1000
+
+    ! update fix bugs and refactor codes
+    1 trim spaces in input
+    2 do not search duplicate strings
+    3 refactor codes
+
+commit 7fbc33af7aa165279775b9847c98b5a28c0ff12d
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Tue May 20 12:19:55 2014 +1000
+
+    ! update 1 change HashMap to LinkedHashMap
+    ! update 2 when getNGramsFromService, we can not add null to NGramStore
+    ! update 3 In GUI, show result texts do not use NGramStore.toString(). Do this is because need header
+
+commit ed926a57736921b274a735af49ba7f79d4132be5
+Author: vvilp <vvilp.wu@gmail.com>
+Date:   Mon May 19 20:25:40 2014 +1000
+
+    ! update 1 change HashMap to LinkedHashMap
+    ! update 2 when getNGramsFromService, we can not add null to NGramStore
+    ! update 3 In GUI, show result texts do not use NGramStore.toString().
+    Do this is because need header
+
+commit 3323b1e91cea6a8bf9d34ac5008073c3d41aa460
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sun May 18 22:51:36 2014 +1000
+
+    ! Updated a total of 12 testcases for NGramStoreTest.java along with the javadocs comments.
+
+commit 8424ec8a9046c3f2c6b19564416213d2b0f277ca
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 18 12:45:00 2014 +1000
+
+    ! update test.java | just for test
+    ! update NGramStoreTest.java | toString_Test1()
+
+commit 9e2c217e9b64527e66fc6041b13fe2a141bb0640
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sat May 17 21:36:45 2014 +1000
+
+    ! Updated 1 more testcase and completed a total of 35 testcases for NGramNodeTest.java along with the Javadocs comments.
+
+commit e5ac094cff5b9d48ebc16162b484a1dee8d587b4
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sat May 17 21:25:17 2014 +1000
+
+    ! Made certain small corrections to the javadocs comments in the NGramNodeTest.java
+
+commit fc4d114172c2b19caaec165fdeeb066b0f98e20d
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sat May 17 21:23:03 2014 +1000
+
+    ! Updated 1 more testcase and completed a total of 34 testcases for NGramNodeTest.java along with the Javadoc comments.
+
+commit b4609dd472339074e14e799ebd415357cd9f5033
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sat May 17 21:15:46 2014 +1000
+
+    ! Updated 2 more testcases and completed a total of 33 testcases along with the Javadocs comments.
+
+commit fb1b9102327aef8b6e5feaeab42c0e5e4b51b182
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Sat May 17 20:38:43 2014 +1000
+
+    ! Made Corrections to a few of the testcases and added 2 more testcases. There are now a total of 31 testcases in NGramNodeTest.java. Also, added Javadocs comments to 30 testcases.
+
+commit 30c3521b294e1948deab4a70707e9f38962231ed
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Fri May 16 19:02:49 2014 +1000
+
+    ! Updated 2 more testcases on String Buffer for NGramStoreTest.java
+
+commit 1e9966ffac5ea3b7f4f200f596cd2f4b3c7be8d4
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Fri May 16 19:01:41 2014 +1000
+
+    ! Updated 1 more testcase for NGramNodeTest.java
+
+commit 122ac31476c09f2466453ae7c595bee19285d4ce
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Fri May 16 17:22:16 2014 +1000
+
+    ! Updated a total of 4 testcases for NGramStoreTest.java
+
+commit 97280b65224af780a8ec57875faa725f883f6548
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Fri May 16 17:20:18 2014 +1000
+
+    ! Updated a total of 29 testcases for NGramNodeTest.java
+
+commit 369df51ecc047e2634a0949c3afe14524f4d46c7
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Fri May 16 16:10:05 2014 +1000
+
+    ! update readme.txt
+    ! update GUI part
+
+commit 06620e57fa7b21d8cbe3f6190dc39610b5986446
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Fri May 16 15:12:28 2014 +1000
+
+    ! update fix char bar showing problem
+
+commit cfaf4f37be6eadbb945f78baf62899570719be38
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Fri May 16 14:35:01 2014 +1000
+
+    ! update input search text can only include Characters, numerics, single quotes, Commas.
+    ! update can search multi phrases and show multi results.
+    ! update using scrollbar in text area.
+    ! update NGramStore.java toString()
+
+commit 16e1e1b596075dde4b411fe207862097b33d80a2
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Fri May 16 10:48:41 2014 +1000
+
+    ! update test cases
+
+commit 43bf0adcd62677f13473d70d88537806c9de3e03
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 15 15:18:11 2014 +1000
+
+    ! update readme.txt | show left works
+    ! update GUI | add Border to chart
+
+commit e282beba2437df012b2a8c80c969905be019ba48
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 15 15:10:49 2014 +1000
+
+    ! update modify NGramNodeTest.java
+    ! update NGramStore.java | modify toString()
+
+commit 3b624ad25935ed0594f948e5abfac4db1a52b0aa
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 15 15:09:49 2014 +1000
+
+    ! update refactor gui method
+
+commit e62beb428b3e4222cbc47d469c76feaea09b84d8
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 15 14:41:43 2014 +1000
+
+    ! update NGramGUI.java | refactor CreateGUI method
+
+commit 0c77454e694b84bdd22efda7aa82e68711ddb33b
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Thu May 15 11:46:52 2014 +1000
+
+    ! update NGramNodeTest.java
+    ! update NGramNode.java | Base on test, modify some code
+
+commit 89c8a446dc630d0c973d7885f70d9108993b4266
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Thu May 15 01:30:44 2014 +1000
+
+    ! Updated 1 testcase for NGramStoreTest.java. Made a few corrections to the previous 6 testcases.
+
+commit 7bad2c1b8f5e94d014bd73927b98fd15592f3892
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 14 18:52:18 2014 +1000
+
+    ! Updated 6 testcases for NGramStoreTest.java
+
+commit c42d815e04c7682466dec1f69da446cb117dcf48
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 14 01:29:06 2014 +1000
+
+    ! Updated another 5 testcases to NGramNodeTest.java file
+
+commit b74d0ffd5f2253df6723f2bced7742c5519ad632
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Wed May 14 01:04:19 2014 +1000
+
+    ! Updated 6 testcases for NGramNodeTest.java file along with Javadocs comments
+
+commit 5ad42e67f2a00fabb56e6b4dc6c91d78d4b95368
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Tue May 13 17:48:12 2014 +1000
+
+    ! Updated 7 testcases for the file NGramNodeTest.java
+
+commit f386ea61fa25453205e9eaeba74184b5e2fc9e55
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 12 21:50:13 2014 +1000
+
+    ! update test NGramNode constructor
+
+commit 4e71e97831106203ce93b89d32078b3422bee648
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 12 16:41:58 2014 +1000
+
+    ! Updated 5 JUnit test cases
+
+commit 61c1d3b53556f1973337999646d86eb03dc0cf7a
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 12 15:14:06 2014 +1000
+
+    ! Reverted back to previous version
+
+commit 200a436889ed57dd583d33d0d3a87d776909bfb9
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 12 13:39:51 2014 +1000
+
+    ! update NGramNodeTest.java | began to add some test
+
+commit a2aec1e29880b224b82457179b3de2b48518fb79
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 12 13:21:37 2014 +1000
+
+    ! Updated 1 test case
+
+commit 9b1c57fa7f21cb127672df7b39b545d7a07a660b
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Mon May 12 13:19:18 2014 +1000
+
+    ! Updated 1 Test case
+
+commit e7a63fe367d296a9dbdddb269aa95b0b5af19a16
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Mon May 12 00:34:56 2014 +1000
+
+    + add @SuppressWarnings("serial") before class
+
+commit 2832d579ae647a6683382ab65c3e4d4fc070842c
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 11 23:51:02 2014 +1000
+
+    + add GUI files
+    ! finish basic GUI part
+
+commit e6e11c314be803e482e9c315b8719803a2db9533
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 11 15:54:42 2014 +1000
+
+    + add NGramNodeTest.java
+    + add NGramStoreTest.java
+
+commit 0574d56e6cf482d8bacf0bd6312df828d26ed7c0
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 11 14:39:09 2014 +1000
+
+    ! update NGramNode.java toString()
+    ! update NGramStore.java toString()
+    ! update test.java | just for test
+
+commit 8e6812e079fe550ae325756b9f5dc73542104aa2
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 11 13:25:34 2014 +1000
+
+    ! update NGramStore.java | Finish all method basically
+
+commit 87cd994ccaed31c2d6b8076caa52c15c0c147665
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 11 12:59:05 2014 +1000
+
+    ! update class NGramNode | Finish basic function of this class
+
+commit 93a805ac2d03bd4046576d26053f4a59fd9ea76a
+Author: ZUTAOWU n8975698 <zutao.wu@connect.qut.edu.au>
+Date:   Sun May 11 12:06:31 2014 +1000
+
+    + add assign2.ngram.NGramNode.java to implement interface assign2.ngram.NGramContainer.java
+    + add assign2.ngram.NGramStore.java to implement interface assign2.ngram.NGramMap.java
+
+commit 9eb7f0473028a197d005d4e8ab1d90c352190425
+Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+Date:   Fri May 9 21:22:01 2014 +1000
+
+    ! updated 1 line
+
+commit b23e1670f795013c975ab04b1c1236b6fa25d830
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Fri May 9 21:09:14 2014 +1000
+
+    + add skeleton code
+    + add doc
+    + add lib
+
+commit 443f22f1610aa3143697b218b2a579c81bb2bcd9
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Fri May 9 16:47:26 2014 +1000
+
+    + add new class just for test git
+
+commit a97442c8bdb03e4376e01dcfbf00506c47728a96
+Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+Date:   Tue May 6 16:17:08 2014 +1000
+
+    + add readme.txt

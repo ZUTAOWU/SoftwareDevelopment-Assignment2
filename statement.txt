@@ -1,0 +1,33 @@
+
+------------------------------------
+Contributor1:
+Name: ZUTAOWU 
+ID: n8975698
+
+Contributor2:
+Name: KAUSHIK MUTHUKRISHNAN SIMILI
+ID: n9000348
+------------------------------------
+
+contribution of ZUTAOWU
+
+	ngram code
+	GUI code
+
+contribution of KAUSHIK MUTHUKRISHNAN SIMILI
+
+	JUnit test cases
+	GUI test cases
+
+------------------------------------
+
+Anything else:
+
+In Git log
+
+ZUTAOWU:
+	Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+	Author: vvilp <vvilp.wu@gmail.com>
+
+KAUSHIK MUTHUKRISHNAN SIMILI:
+	Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
