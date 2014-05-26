@@ -48,9 +48,9 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private JPanel resultPanel;
 	// Chart panel displaying the bar chart results
 	private JPanel chartPanel;
-
-	private Thread run;
-
+	// a thread to search suggestion
+	private Thread searchThread;
+	// NGramStore
 	private NGramStore ns;
 
 	/*
@@ -205,12 +205,10 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		((ChartPanel) chartPanel).clearResultChart();
 		for (String s : mySet) {
 			try {
-				// For each search text, get the number of suggestions from the
-				// NGram search engine
+				// For each search text, get the number of suggestions from the NGram search engine
 				ns.getNGramsFromService(s, seachNumber);
 			} catch (NGramException e1) {
-				// If a correct result is not retrieved from the NGramService,
-				// then show the warning
+				// If a correct result is not retrieved from the NGramService, then show the warning
 				JOptionPane.showMessageDialog(this, "Please input valid search texts!");
 				// e1.printStackTrace();
 				return;
@@ -285,17 +283,18 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			ns = new NGramStore();
 
 			// Opening a new thread to handle the suggestion searching processing
-			run = new Thread() {
+			searchThread = new Thread() {
 				@Override
 				public void run() {
 					// During search, disabling the GUI components i.e., the text areas and button
 					disableComponent();
+					// Main search and show function
 					searchAndShowResult(seachNumber, searchTextArr);
 					// After searching, enabling all the GUI components
 					EnableComponent();
 				}
 			};
-			run.start();
+			searchThread.start();
 		}
 	}
 
