@@ -36,9 +36,7 @@ public class ChartPanel extends JPanel {
 
 	/*
 	 * Helper method to insert data into the dataset
-	 * 
 	 * @param dataset
-	 * 
 	 * @param node
 	 */
 	private void addDataToDataset(DefaultCategoryDataset dataset,
@@ -55,7 +53,6 @@ public class ChartPanel extends JPanel {
 
 	/*
 	 * Helper method to create an empty data set
-	 * 
 	 * @return
 	 */
 	private DefaultCategoryDataset createDataset() {
@@ -65,16 +62,13 @@ public class ChartPanel extends JPanel {
 
 	/*
 	 * Creating a data set from a single node
-	 * 
 	 * @param node
-	 * 
 	 * @return
 	 */
 	private DefaultCategoryDataset createDataset(NGramContainer node) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		for (int i = 0; i < node.getPredictions().length; i++) {
-			dataset.setValue(node.getProbabilities()[i], node.getContext(),
-					node.getPredictions()[i]);
+			dataset.setValue(node.getProbabilities()[i], node.getContext(), node.getPredictions()[i]);
 		}
 		return dataset;
 	}
@@ -82,11 +76,8 @@ public class ChartPanel extends JPanel {
 	/*
 	 * Creating data set from String[] contexts and NGramMap store in order to
 	 * generate characters
-	 * 
 	 * @param contexts - context array to hold each context
-	 * 
 	 * @param store the - NGramStore that stores all the results
-	 * 
 	 * @return DefaultCategoryDataset
 	 */
 	private DefaultCategoryDataset createDataset(String[] contexts,
@@ -100,11 +91,8 @@ public class ChartPanel extends JPanel {
 
 	/*
 	 * Creating a chart
-	 * 
 	 * @param dataset - Main data shown on the bar chart
-	 * 
 	 * @param title - Shown at the top of the bar chart
-	 * 
 	 * @return JFreeChart
 	 */
 	private JFreeChart createChart(CategoryDataset dataset, String title) {
@@ -137,7 +125,6 @@ public class ChartPanel extends JPanel {
 
 	/**
 	 * Displaying a single result of node values on the Chart panel
-	 * 
 	 * @param node
 	 */
 	public void showResultChart(NGramContainer node) {
@@ -150,11 +137,8 @@ public class ChartPanel extends JPanel {
 
 	/**
 	 * Displaying the results from NGramMap store on the Chart panel
-	 * 
-	 * @param contexts
-	 *            - Context array to hold each context
-	 * @param store
-	 *            - The NGramStore which stores all the results
+	 * @param contexts - Context array to hold each context
+	 * @param store - The NGramStore which stores all the results
 	 */
 	public void showResultChart(String[] contexts, NGramMap store) {
 		remove(chartPanel);

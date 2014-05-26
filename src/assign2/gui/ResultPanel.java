@@ -17,12 +17,11 @@ import javax.swing.border.TitledBorder;
  * @author ZUTAOWU n8975698
  * 
  */
+@SuppressWarnings("serial")
 public class ResultPanel extends JPanel {
 
-	private static final long serialVersionUID = 1937556717072963711L;
 	private JTextArea resultDisplay;
 	JScrollPane scrollPane;
-	
 	
 	/**
 	 * ResultPanel hold the JTextArea which show the search result

@@ -31,9 +31,9 @@ import assign2.ngram.NGramStore;
  * @author ZUTAOWU n8975698
  * 
  */
+@SuppressWarnings("serial")
 public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
-	private static final long serialVersionUID = -2419228817448519511L;
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 
@@ -115,9 +115,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 	/*
 	 * Helper method check if string array is valid
-	 * 
 	 * @param strArr
-	 * 
 	 * @return - true if string array is valid , false if string array is not
 	 * valid
 	 */
@@ -133,11 +131,8 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	/*
 	 * Helper method to test whether or not the input text is valid for the
 	 * NGram suggestion search
-	 * 
 	 * @param searchText - Test for search suggestions
-	 * 
 	 * @return string array if search text is valid, split by comma
-	 * 
 	 * @throws NGramException if input invalid search text
 	 */
 	private String[] parseInput(String searchText) throws NGramException {
@@ -160,11 +155,8 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 	/*
 	 * Helper method to show the result on the GUI
-	 * 
 	 * @param searchTextArr
-	 * 
 	 * @param ngramMap
-	 * 
 	 * @return
 	 */
 	private String getResult(String[] searchTextArr, NGramStore ngramMap) {
@@ -203,9 +195,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
 	/*
 	 * Helper method to search and show the results on GUI
-	 * 
 	 * @param seachNumber - Search for number of results
-	 * 
 	 * @param searchTextArr - Search for number of suggestions
 	 */
 	private void searchAndShowResult(final Integer seachNumber, final String[] searchTextArr) {
