@@ -16,7 +16,7 @@ import com.microsoft.research.webngram.service.GenerationService.TokenSet;
 public class NGramStore implements NGramMap {
 
 	private static final String Key = "068cc746-31ff-4e41-ae83-a2d3712d3e68";
-
+	private static final String ngramBody = "bing-body/2013-12/5";
 	// ngramMap stores the context and node
 	private Map<String, NGramContainer> ngramMap;
 
@@ -68,7 +68,7 @@ public class NGramStore implements NGramMap {
 		// Throw NGramException if the NGramContainer cannot be created.
 		try {
 			GenerationService service = factory.newGenerationService();
-			TokenSet tokenSet = service.generate(Key, "bing-body/2013-12/5",context, maxResults, null);
+			TokenSet tokenSet = service.generate(Key, ngramBody,context, maxResults, null);
 			List<String> wordsList = tokenSet.getWords();
 			List<Double> logProbs = tokenSet.getProbabilities();
 			List<Double> probs = new ArrayList<Double>();
