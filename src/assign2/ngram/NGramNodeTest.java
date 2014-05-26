@@ -5,6 +5,7 @@ package assign2.ngram;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import org.junit.AfterClass;
@@ -1926,5 +1927,57 @@ public class NGramNodeTest {
 		String outputNodeValue = "Passengers are requested to | honestly : 0.222222\nPassengers are requested to | sincerely : 0.111111\nPassengers are requested to | exactly : 0.333333\n";
 		assertEquals(outputNodeValue, node.toString());
 	}
+	
+	/*
+	 * Test cases below are test cases from Jim Hogan
+	 */
+	@Test
+	public void NoExtraPublicMethods() {
+		//Extends Object, implements NGramContainer
+		final int toStringCount = 1;
+		final int NumObjectClassMethods = Array.getLength(Object.class.getMethods());
+		final int NumInterfaceMethods = Array.getLength(NGramContainer.class.getMethods());
+		final int NumNGramNodeClassMethods = Array.getLength(NGramNode.class.getMethods());
+		assertTrue("obj:"+NumObjectClassMethods+":inter:"+NumInterfaceMethods+" - 1 (toString()) = class:"+NumNGramNodeClassMethods, (NumObjectClassMethods+NumInterfaceMethods-toStringCount)==NumNGramNodeClassMethods);
+	}
+ 
+  @Test
+	  public void NoExtraPublicFields() {
+			  //Extends Object, implements NGramContainer
+		  final int NumObjectClassFields = Array.getLength(Object.class.getFields());
+		  final int NumInterfaceFields = Array.getLength(NGramContainer.class.getFields());
+		  final int NumNGramNodeClassFields = Array.getLength(NGramNode.class.getFields());
+		  assertTrue("obj + interface = class",(NumObjectClassFields+NumInterfaceFields)==NumNGramNodeClassFields);
+	  }
+ 
+  @Test
+	  public void NoExtraPublicConstructors() {
+		  //Extends Object, implements NGramContainer
+		  final int ExtraConsCount =1;
+		  final int NumObjectClassConstructors = Array.getLength(Object.class.getConstructors());
+		  final int NumInterfaceConstructors = Array.getLength(NGramContainer.class.getConstructors());
+		  final int NumNGramNodeClassConstructors = Array.getLength(NGramNode.class.getConstructors());
+		  assertTrue("obj:"+NumObjectClassConstructors+":inter:"+NumInterfaceConstructors+" 1 (extra) = class:"+NumNGramNodeClassConstructors,
+	                  	(NumObjectClassConstructors+NumInterfaceConstructors+ExtraConsCount)==NumNGramNodeClassConstructors);
+	  }
+     
 
+	@Test
+	public void TOSTRING_ComplexObject() throws NGramException {
+		String test = "be or not to | be : 0.136059\n" + "be or not to | mention : 0.066563\n" +
+																"be or not to | exceed : 0.032759\n" + "be or not to | say : 0.028824\n" +
+		                                                      "be or not to | the : 0.024524\n";
+		
+		String[] words = { "Kindly", "Inform", "Us" };
+		String[] predictions = { "honestly", "sincerely", "exactly" };
+		Double[] probabilities = { 0.22222222222, 0.1111111111111, 0.333333333333 };
+
+		NGramNode toTest = new NGramNode(words, predictions, probabilities);
+		toTest.setContext("be or not to");
+		toTest.setPredictions(new String[]{"be","mention","exceed","say","the"});
+		            toTest.setProbabilities(new Double[]{0.13605912332,0.066563234345,0.03275912314,0.028823899932,0.0245242343});
+		            String str = toTest.toString();
+		assertEquals(test,str);
+	
+	}
 }
