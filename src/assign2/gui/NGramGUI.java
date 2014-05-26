@@ -14,11 +14,13 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -34,7 +36,7 @@ import assign2.ngram.NGramStore;
 @SuppressWarnings("serial")
 public class NGramGUI extends JFrame implements ActionListener, Runnable {
 
-	private static final int WIDTH = 800;
+	private static final int WIDTH = 1100;
 	private static final int HEIGHT = 600;
 	// Maximum suggetion number
 	private static final int MAX_SEARCH_NUM = 5;
@@ -86,9 +88,10 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	 */
 	private void createResultGUI() {
 		resultPanel = new ResultPanel();
-		this.getContentPane().add(resultPanel, BorderLayout.LINE_START);
+		this.getContentPane().add(resultPanel, BorderLayout.CENTER);
+		//resultPanel.setPreferredSize(new Dimension(300, HEIGHT));
 		chartPanel = new ChartPanel();
-		this.getContentPane().add(chartPanel, BorderLayout.CENTER);
+		//this.getContentPane().add(chartPanel, BorderLayout.LINE_END);
 	}
 
 	/*
@@ -111,6 +114,17 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		// set the common number
 		suggestionNumber.setText("5");
 		textPanel.add(suggestionNumber);
+		
+		JRadioButton textResult = new JRadioButton("Show Text Results");
+		JRadioButton chartResult = new JRadioButton("Show Text and Chart Results");
+		textResult.addActionListener(this);
+		chartResult.addActionListener(this);
+		textResult.setSelected(true);
+		ButtonGroup bG = new ButtonGroup();
+		bG.add(textResult);
+		bG.add(chartResult);
+		textPanel.add(textResult);
+		textPanel.add(chartResult);
 
 		this.getContentPane().add(textPanel, BorderLayout.PAGE_START);
 	}
@@ -245,58 +259,72 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		suggestionNumber.setEnabled(true);
 	}
 
+	/*
+	 * Helper method to handle search button and whole process
+	 */
+	private void searchAction() {
+		String searchText = textSearch.getText();
+		String searchNumberStr = suggestionNumber.getText();
+
+		// Getting the search number input and Validating it
+		final Integer seachNumber;
+		try {
+			seachNumber = Integer.valueOf(searchNumberStr);
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(this, "Please input a valid natural number(1-5)!");
+			// e1.printStackTrace();
+			return;
+		}
+		
+		if(seachNumber <= 0 || seachNumber > MAX_SEARCH_NUM) {
+			JOptionPane.showMessageDialog(this, "Please input a valid natural number(1-5)!");
+			return;
+		}
+
+		// Getting the search text input and Validating it
+		final String[] searchTextArr;
+		try {
+			searchTextArr = parseInput(searchText);
+		} catch (Exception e1) {
+			// If input string is invalid , then displaying the warning message
+			JOptionPane.showMessageDialog(this, "Please input valid search texts!");
+			// e1.printStackTrace();
+			return;
+		}
+
+		ns = new NGramStore();
+
+		// Opening a new thread to handle the suggestion searching processing
+		searchThread = new Thread() {
+			@Override
+			public void run() {
+				// During search, disabling the GUI components i.e., the text areas and button
+				disableComponent();
+				// Main search and show function
+				searchAndShowResult(seachNumber, searchTextArr);
+				// After searching, enabling all the GUI components
+				EnableComponent();
+			}
+		};
+		searchThread.start();
+	}
+	
 	/**
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String buttonString = e.getActionCommand();
-
-		if (buttonString.equals("Search")) {
-			String searchText = textSearch.getText();
-			String searchNumberStr = suggestionNumber.getText();
-
-			// Getting the search number input and Validating it
-			final Integer seachNumber;
-			try {
-				seachNumber = Integer.valueOf(searchNumberStr);
-			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(this, "Please input a valid natural number(1-5)!");
-				// e1.printStackTrace();
-				return;
-			}
-			
-			if(seachNumber <= 0 || seachNumber > MAX_SEARCH_NUM) {
-				JOptionPane.showMessageDialog(this, "Please input a valid natural number(1-5)!");
-				return;
-			}
-
-			// Getting the search text input and Validating it
-			final String[] searchTextArr;
-			try {
-				searchTextArr = parseInput(searchText);
-			} catch (Exception e1) {
-				// If input string is invalid , then displaying the warning message
-				JOptionPane.showMessageDialog(this, "Please input valid search texts!");
-				// e1.printStackTrace();
-				return;
-			}
-
-			ns = new NGramStore();
-
-			// Opening a new thread to handle the suggestion searching processing
-			searchThread = new Thread() {
-				@Override
-				public void run() {
-					// During search, disabling the GUI components i.e., the text areas and button
-					disableComponent();
-					// Main search and show function
-					searchAndShowResult(seachNumber, searchTextArr);
-					// After searching, enabling all the GUI components
-					EnableComponent();
-				}
-			};
-			searchThread.start();
+		String actionString = e.getActionCommand();
+		System.out.println(actionString);
+		if (actionString.equals("Search")) {
+			searchAction();
+		} else if (actionString.equals("Show Text Results")) {
+			this.getContentPane().remove(chartPanel);
+			this.getContentPane().revalidate();
+		} else if (actionString.equals("Show Text and Chart Results")) {
+			this.getContentPane().add(chartPanel, BorderLayout.LINE_END);
+			this.getContentPane().revalidate();
+//			updateUI();
 		}
 	}
 

@@ -133,6 +133,7 @@ public class ChartPanel extends JPanel {
 		chart = createChart(dataset, ChartTitle);
 		chartPanel = new org.jfree.chart.ChartPanel(chart);
 		add(chartPanel, BorderLayout.CENTER);
+		updateUI();
 	}
 
 	/**
@@ -156,13 +157,15 @@ public class ChartPanel extends JPanel {
 	 */
 	public void clearResultChart() {
 		// Creating an empty dataset
-		remove(chartPanel);
-		dataset = createDataset();
-		chart = createChart(dataset, ChartTitle);
-		chartPanel = new org.jfree.chart.ChartPanel(chart);
-		add(chartPanel, BorderLayout.CENTER);
-		// Updating the chart panel with the above components
-		updateUI();
+		if(dataset.getColumnCount() > 0 || dataset.getRowCount() > 0) {
+			remove(chartPanel);
+			dataset = createDataset();
+			chart = createChart(dataset, ChartTitle);
+			chartPanel = new org.jfree.chart.ChartPanel(chart);
+			add(chartPanel, BorderLayout.CENTER);
+			// Updating the chart panel with the above components
+			updateUI();
+		}
 	}
 
 }

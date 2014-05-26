@@ -17,6 +17,14 @@ import javax.swing.border.TitledBorder;
  * @author ZUTAOWU n8975698
  * 
  */
+/**
+ * @author vvilp
+ *
+ */
+/**
+ * @author vvilp
+ *
+ */
 @SuppressWarnings("serial")
 public class ResultPanel extends JPanel {
 
@@ -33,8 +41,8 @@ public class ResultPanel extends JPanel {
 		resultDisplay.setEditable(false);
 		// user scrollPane to hold resultDisplay to adapt for long text
 		scrollPane = new JScrollPane(resultDisplay, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(300,HEIGHT));
-		this.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setPreferredSize(new Dimension(300, HEIGHT));
+		add(scrollPane, BorderLayout.CENTER);
 	}
 
 	/**
@@ -57,6 +65,14 @@ public class ResultPanel extends JPanel {
 		// update this panel
 		updateUI();
 	}
+	
+//	/**
+//	 * this method is used for set size of result panel
+//	 * @param Dimension
+//	 */
+//	public void setPreferredSize(Dimension d) {
+//		scrollPane.setPreferredSize(d);
+//	}
 
 
 
