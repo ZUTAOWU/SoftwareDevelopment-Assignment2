@@ -23,7 +23,7 @@ contribution of KAUSHIK MUTHUKRISHNAN SIMILI
 
 Anything else:
 
-In Git log
+In Git log:
 
 ZUTAOWU(n8975698):
 	Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
@@ -31,3 +31,4 @@ ZUTAOWU(n8975698):
 
 KAUSHIK MUTHUKRISHNAN SIMILI(n9000348):
 	Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+------------------------------------

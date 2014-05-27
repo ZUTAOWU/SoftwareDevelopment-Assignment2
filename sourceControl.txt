@@ -1,3 +1,9 @@
+* commit 795ac23d1461437f67f713446cf8172ecabc8df0
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Tue May 27 17:39:51 2014 +1000
+| 
+|     - update git logs
+|  
 * commit c150c6a6dfdb5136694366461dfd4eddd6587d61
 | Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
 | Date:   Tue May 27 17:34:09 2014 +1000
