@@ -191,8 +191,8 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			} else {
 				// If this search text has some suggestions, then display them
 				sb.append(node.toString());
-				sb.append("\n");
 			}
+			sb.append("\n");
 		}
 		return sb.toString();
 	}
@@ -231,7 +231,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			}
 
 		}
-		// System.out.println(ns);
+		System.out.println(ns);
 		String resultStr = getResult(mySet.toArray(new String[mySet.size()]), ns);
 		// Display the results on the GUI from the store
 		((ResultPanel) resultPanel).showResultText(resultStr);
@@ -315,7 +315,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String actionString = e.getActionCommand();
-		System.out.println(actionString);
+		//System.out.println(actionString);
 		if (actionString.equals("Search")) {
 			searchAction();
 		} else if (actionString.equals("Show Text Results")) {
