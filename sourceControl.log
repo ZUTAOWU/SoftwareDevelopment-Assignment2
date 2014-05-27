@@ -1,3 +1,83 @@
+* commit c150c6a6dfdb5136694366461dfd4eddd6587d61
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Tue May 27 17:34:09 2014 +1000
+| 
+|     ! update GUI
+|  
+* commit 182810420ad46247abb708874564fc2f5863b834
+| Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+| Date:   Tue May 27 17:33:04 2014 +1000
+| 
+|     ! Updated the testcases word document and generated PDF file for the same.
+|  
+* commit c5f290f93f54ebb192a69babb7318fc947dd14d3
+| Author: iamkaushikhere <kaushikmuthukrishnan.simili@connect.qut.edu.au>
+| Date:   Tue May 27 17:20:48 2014 +1000
+| 
+|     ! Updated a few more positive and negative testcase scenarios, did some corrections and generated the PDF version of the word file.
+|  
+* commit a08cbce8221e89ec539a55c69a1f990246581ff5
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Tue May 27 15:13:07 2014 +1000
+| 
+|     ! Updated the error message for exceptions
+|     ! updated the comments and doc
+|  
+* commit 7c90c535b3ed4101e3021ca058bada075981a989
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Tue May 27 14:42:28 2014 +1000
+| 
+|     ! update GUI
+|     ! update statement.txt
+|  
+* commit 6a464f7ea84734f54b0278e15ee5835323ff1a20
+| Author: vvilp <vvilp.wu@gmail.com>
+| Date:   Tue May 27 00:29:15 2014 +1000
+| 
+|     ! update GUI test cases
+|  
+* commit 75ed15c254338ac5ff1cfb66ca2c4fb8f067f6a4
+| Author: vvilp <vvilp.wu@gmail.com>
+| Date:   Tue May 27 00:28:09 2014 +1000
+| 
+|     ! update GUI
+|     + add radio button to select text result and chart result
+|  
+* commit 9baa46f5fde8c7615843683aa45d153f5b1f5c88
+| Author: vvilp <vvilp.wu@gmail.com>
+| Date:   Mon May 26 23:11:05 2014 +1000
+| 
+|     ! update GUI | search number maximum is 5
+|  
+* commit 1c6945bad18d5d5b3e5b398b738e106973e769ab
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Mon May 26 19:07:34 2014 +1000
+| 
+|     ! update NGramGUI.java | update comments and thread name
+|  
+* commit ab7e8c7d5aa98c88817d274f75d05b1909f99020
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Mon May 26 18:45:26 2014 +1000
+| 
+|     ! update readme.txt
+|     ! update sourceControl.log
+|     - delete sourceControl-graph.log
+|  
+* commit 3faaa1603d32e3c2c0e54e551867f2b81004f9d2
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Mon May 26 18:39:35 2014 +1000
+| 
+|     ! update readme.txt
+|  
+* commit c9893c3a054b050aa3b08bb071e0f4764a65d68f
+| Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
+| Date:   Mon May 26 18:37:55 2014 +1000
+| 
+|     + add git log
+|     + add git log with graph
+|     + add statement.txt
+|     ! update readme.txt
+|  
 * commit de32edac9b9e31058f549c12e7ccdda34a05d515
 | Author: ZUTAOWU <zutao.wu@connect.qut.edu.au>
 | Date:   Mon May 26 18:14:48 2014 +1000
