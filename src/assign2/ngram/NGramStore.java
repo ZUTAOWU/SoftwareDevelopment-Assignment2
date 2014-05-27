@@ -21,7 +21,7 @@ public class NGramStore implements NGramMap {
 	private Map<String, NGramContainer> ngramMap;
 
 	/**
-	 * NGramStore constructor
+	 * NGramStore constructor is used in creating an instance of this class and to initialize the LinkedHashMap
 	 */
 	public NGramStore() {
 		// LinkedHashMap is used in order to maintain the order of user input
@@ -62,7 +62,7 @@ public class NGramStore implements NGramMap {
 
 		NgramServiceFactory factory = NgramServiceFactory.newInstance(SimpleNGramGenerator.Key);
 		if (factory == null) {
-			throw new NGramException("NGram Service unavailable");
+			throw new NGramException("NGram service unavailable");
 		}
 
 		// Throw NGramException if the NGramContainer cannot be created.
@@ -95,12 +95,13 @@ public class NGramStore implements NGramMap {
 				return true;
 			}
 		} catch (Exception e) {
-			throw new NGramException("Can not create NGramNode Successfully!");
+			throw new NGramException("Could not create NGramNode for the given input text!");
 		}
 	}
 
 	/**
 	 * @see java.lang.Object#toString()
+	 * This method is used to output the contents of the store for display purpose.
 	 */
 	@Override
 	public String toString() {

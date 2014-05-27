@@ -79,21 +79,21 @@ public class NGramNode implements NGramContainer {
 	 *             probabilities.length
 	 */
 	public NGramNode(String[] words, String[] predictions, Double[] probabilities) throws NGramException {
-		// handling SimulationException
+		// Handling SimulationException
 		if (!checkStringArray(words)) {
-			throw new NGramException("Words cannot be null (OR) empty (OR) contain at least one empty or null string.");
+			throw new NGramException("Words cannot be null or empty and cannot contain at least one empty or null string.");
 		}
 
 		if (!checkStringArray(predictions)) {
-			throw new NGramException("Predictions cannot be null (OR) empty (OR) contain at least one empty or null string.");
+			throw new NGramException("Predictions cannot be null or empty and cannot contain at least one empty or null string.");
 		}
 
 		if (!checkProbArray(probabilities)) {
-			throw new NGramException("Probabilities cannot be null (OR) contain at least one entry which is null (OR) zero (OR) negative (OR) greater than 1.0.");
+			throw new NGramException("Probabilities cannot be null or contain at least one entry which is null and cannot be zero or negative or greater than 1.0.");
 		}
 
 		if (predictions.length != probabilities.length) {
-			throw new NGramException("Length of predictions is different from that of length of probabilities.");
+			throw new NGramException("Length of the predictions is different from that of the length of probabilities.");
 		}
 		// -----------------------------
 		context = "";
@@ -131,15 +131,15 @@ public class NGramNode implements NGramContainer {
 		}
 
 		if (!checkStringArray(predictions)) {
-			throw new NGramException("Predictions cannot be null (OR) empty (OR) contain at least one empty or null string.");
+			throw new NGramException("Predictions cannot be null or empty and cannot contain at least one empty or null string.");
 		}
 
 		if (!checkProbArray(probabilities)) {
-			throw new NGramException("Probabilities cannot be null (OR) contain at least one entry which is null (OR) zero (OR) negative (OR) greater than 1.0.");
+			throw new NGramException("Probabilities cannot be null or contain at least one entry which is null and cannot be zero or negative or greater than 1.0.");
 		}
 
 		if (predictions.length != probabilities.length) {
-			throw new NGramException("Length of predictions is different from that of length of probabilities.");
+			throw new NGramException("Length of the predictions is different from that of the length of probabilities.");
 		}
 		// -----------------------------
 		this.context = context;
@@ -179,7 +179,7 @@ public class NGramNode implements NGramContainer {
 		// Throws: NGramException if words are null (OR) empty (OR) contains at
 		// least one empty or null string
 		if (!checkStringArray(words)) {
-			throw new NGramException("Words cannot be null (OR) empty (OR) contain at least one empty or null string.");
+			throw new NGramException("Words cannot be null or empty and cannot contain at least one empty or null string.");
 		}
 		// Connecting string array to string
 		StringBuffer contextBuffer = new StringBuffer();
@@ -209,7 +209,7 @@ public class NGramNode implements NGramContainer {
 		// Throws: NGramException - if predictions are null (OR) empty (OR)
 		// contains at least one empty or null string
 		if (!checkStringArray(predictions)) {
-			throw new NGramException("Predictions cannot be null (OR) empty (OR) contain at least one empty or null string.");
+			throw new NGramException("Predictions cannot be null or empty and cannot contain at least one empty or null string.");
 		}
 		predictionsList.clear();
 		for (int i = 0; i < predictions.length; i++) {
@@ -234,7 +234,7 @@ public class NGramNode implements NGramContainer {
 		// least one entry which is null (OR) zero (OR) negative (OR) greater
 		// than 1.0
 		if (!checkProbArray(probabilities)) {
-			throw new NGramException("Probabilities cannot be null (OR) contain at least one entry as null (OR) zero (OR) negative (OR) greater than 1.0.");
+			throw new NGramException("Probabilities cannot be null or contain at least one entry which is null and cannot be zero or negative or greater than 1.0.");
 		}
 		probabilitiesList.clear();
 		for (int i = 0; i < probabilities.length; i++) {
@@ -244,6 +244,7 @@ public class NGramNode implements NGramContainer {
 
 	/**
 	 * @see java.lang.Object#toString()
+	 * This method is used to output the contents of the node for display purpose.
 	 */
 	@Override
 	public String toString() {

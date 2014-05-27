@@ -231,7 +231,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 			}
 
 		}
-		System.out.println(ns);
+		//System.out.println(ns);
 		String resultStr = getResult(mySet.toArray(new String[mySet.size()]), ns);
 		// Display the results on the GUI from the store
 		((ResultPanel) resultPanel).showResultText(resultStr);
