@@ -217,8 +217,7 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 	private void searchAndShowResult(final Integer seachNumber, final String[] searchTextArr) {
 		// Use LinkedHashSet to ensure there are no duplicated texts to search
 		Set<String> mySet = new LinkedHashSet<String>(Arrays.asList(searchTextArr));
-		((ResultPanel) resultPanel).clearResult();
-		((ChartPanel) chartPanel).clearResultChart();
+
 		for (String s : mySet) {
 			try {
 				// For each search text, get the number of suggestions from the NGram search engine
@@ -317,6 +316,8 @@ public class NGramGUI extends JFrame implements ActionListener, Runnable {
 		String actionString = e.getActionCommand();
 		//System.out.println(actionString);
 		if (actionString.equals("Search")) {
+			((ResultPanel) resultPanel).clearResult();
+			((ChartPanel) chartPanel).clearResultChart();
 			searchAction();
 		} else if (actionString.equals("Show Text Results")) {
 			this.getContentPane().remove(chartPanel);
